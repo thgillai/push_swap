@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/04/30 13:29:56 by thgillai         ###   ########.fr       */
+/*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
+/*   Updated: 2021/05/17 12:17:50 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/checker.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-int main(int argc, char **argv)
+# include "../libft/inc/libft.h"
+# include <stdio.h>
+
+typedef struct s_pile
 {
-	t_check	check;
+	int *a;
+	int *b;
+	int arg_nb;
+}	t_pile;
 
-	if (argc < 2)
-		exit_error("Arguments error");
+void	exit_error();
+void	*ft_calloc(size_t count, size_t size);
+int		ft_isdigit(int c);
+int		ft_atoi(const char *str);
 
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 11:35:37 by thgillai          #+#    #+#             */
-/*   Updated: 2021/04/30 13:32:40 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/17 14:41:32 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* Partie perso */
 int		ft_ispace(char c);
-size_t	ft_strcpy(char *dest, const char *src);
 void	exit_error(char *error_string);
+size_t	ft_strcpy(char *dest, const char *src);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
