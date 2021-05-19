@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/19 15:41:29 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/19 16:27:16 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,8 @@ void	test(int ac, t_pile *pile)
 
 	ac = 0;
 	printf("pile a : ");
-	for(loop = 0; loop < 4 ; loop++)
+	for(loop = 0; loop < pile->arg_nb_a; loop++)
 		printf("%d ", pile->a[loop]);
-	printf("\n");
-	printf("pile b : ");
-	for(loop = 0; loop < 4 ; loop++)
-		printf("%d ", pile->b[loop]);
 	printf("\n");
 }
 
@@ -100,7 +96,6 @@ void	arg_is_str(char *av, t_pile *pile)
 		}
 		i++;
 	}
-	pile->b = ft_calloc(b, sizeof(int *));
 	pile->a = malloc(sizeof (int) * b);
 	if (!pile->a)
 		exit_error("Error\n");
@@ -131,7 +126,6 @@ int	main(int ac, char **av)
 		while (i < ac)
 			pile_arg(av[i++], pile);
 	}
-	pile->b = ft_calloc(ac, sizeof(int *));
 	while (i)
 		pile_doublons(pile->a[i--], pile);
 	test(ac - 1, pile);
