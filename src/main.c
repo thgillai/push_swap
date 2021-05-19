@@ -103,7 +103,11 @@ void	arg_is_str(char *av, t_pile *pile)
 	i = 0;
 	pile->arg_nb_a = b;
 	while (b--)
-		pile->a[j++] = ft_atoi(str[i++]);
+	{
+		pile->a[j] = ft_atoi(str[i++]);
+		if (pile->a[j] < 0 || pile->a[j++] > 2147483647)
+			exit_error("Error\n");
+	}
 	ft_freetab(str);
 }
 
@@ -117,7 +121,10 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		exit_error("Error\n");
 	if (ac == 2)
+	{
 		arg_is_str(av[1], pile);
+		i = pile->arg_nb_a - 1;
+	}
 	else
 	{
 		pile->a = malloc(sizeof(int *) * ac);
@@ -125,9 +132,11 @@ int	main(int ac, char **av)
 			return (0);
 		while (i < ac)
 			pile_arg(av[i++], pile);
+		i -= 1;
+		pile->a[i] = 0;
 	}
-	while (i)
-		pile_doublons(pile->a[i--], pile);
+	while (i != 0)
+		pile_doublons(pile->a[--i], pile);
 	test(ac - 1, pile);
 	return (0);
 }
