@@ -18,11 +18,11 @@ void	test(int ac, t_pile *pile)
 
 	ac = 0;
 	printf("pile a : ");
-	for(loop = 0; loop < 4; loop++)
+	for(loop = 0; loop < 4 ; loop++)
 		printf("%d ", pile->a[loop]);
 	printf("\n");
 	printf("pile b : ");
-	for(loop = 0; loop < 4; loop++)
+	for(loop = 0; loop < 4 ; loop++)
 		printf("%d ", pile->b[loop]);
 	printf("\n");
 }
@@ -51,7 +51,7 @@ void	pile_doublons(int arg, t_pile *pile)
 
 	i = 0;
 	count = 0;
-	while (pile->a && pile->a[i])
+	while (i < pile->arg_nb_a)
 	{
 		if (arg == pile->a[i])
 			count++;
@@ -96,9 +96,7 @@ void	arg_is_str(char *av, t_pile *pile)
 		while (str[i][j])
 		{
 			if (!ft_isdigit(str[i][j++]))
-			{
 				exit_error("Error\n");
-			}
 		}
 		i++;
 	}
@@ -108,6 +106,7 @@ void	arg_is_str(char *av, t_pile *pile)
 		exit_error("Error\n");
 	j = 0;
 	i = 0;
+	pile->arg_nb_a = b;
 	while (b--)
 		pile->a[j++] = ft_atoi(str[i++]);
 	ft_freetab(str);
@@ -126,19 +125,15 @@ int	main(int ac, char **av)
 		arg_is_str(av[1], pile);
 	else
 	{
-		pile->b = ft_calloc(ac, sizeof(int *));
 		pile->a = malloc(sizeof(int *) * ac);
 		if (!pile->a)
 			return (0);
 		while (i < ac)
-		{
 			pile_arg(av[i++], pile);
-		}
 	}
-	i = 0;
-	while (pile->a[i])
-		pile_doublons(pile->a[i++], pile);
-	av[i] = 0;
+	pile->b = ft_calloc(ac, sizeof(int *));
+	while (i)
+		pile_doublons(pile->a[i--], pile);
 	test(ac - 1, pile);
 	return (0);
 }
