@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/17 12:17:50 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/18 11:19:08 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,13 @@ typedef struct s_pile
 {
 	int *a;
 	int *b;
-	int arg_nb;
+	int arg_nb_a;
+	int arg_nb_b;
+	char	*input;
+	t_list	*stacka;
+	t_list	*firsta;
+	t_list	*stackb;
+	t_list	*firstb;
 }	t_pile;
 
 void	exit_error();
