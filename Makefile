@@ -6,11 +6,12 @@
 #    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/05/17 14:49:53 by thgillai         ###   ########.fr        #
+#    Updated: 2021/05/20 15:32:54 by aglorios         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCNAME =	src/main.c \
+			src/swap.c
 
 SRCS	= ${SRCNAME}
 

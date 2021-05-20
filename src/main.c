@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/19 16:27:16 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:22:51 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ void	test(int ac, t_pile *pile)
 
 	ac = 0;
 	printf("pile a : ");
+	for(loop = 0; loop < pile->arg_nb_a; loop++)
+		printf("%d ", pile->a[loop]);
+	if (!swap(pile->a))
+		exit_error("Error\n");
+//	if (!swap(pile->b))
+//		exit_error("Error\n");
+	printf("\npile a : ");
 	for(loop = 0; loop < pile->arg_nb_a; loop++)
 		printf("%d ", pile->a[loop]);
 	printf("\n");
@@ -96,7 +103,7 @@ void	arg_is_str(char *av, t_pile *pile)
 		}
 		i++;
 	}
-	pile->a = malloc(sizeof (int) * b);
+	pile->a = malloc(sizeof (int *) * b);
 	if (!pile->a)
 		exit_error("Error\n");
 	j = 0;
@@ -108,6 +115,7 @@ void	arg_is_str(char *av, t_pile *pile)
 		if (pile->a[j] < 0 || pile->a[j++] > 2147483647)
 			exit_error("Error\n");
 	}
+	pile->a[j] = 0;
 	ft_freetab(str);
 }
 
