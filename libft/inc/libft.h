@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 11:35:37 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/17 14:41:32 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:01:48 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int		ft_ispace(char c);
 void	exit_error(char *error_string);
 size_t	ft_strcpy(char *dest, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
+void	ft_freetab(char **tabs);
 
 #endif

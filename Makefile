@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
+#    By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/05/20 15:32:54 by aglorios         ###   ########.fr        #
+#    Updated: 2021/05/20 16:38:46 by thgillai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCNAME =	src/main.c \
-			src/swap.c
+SRCNAME =	src/main.c src/swap.c src/rotate.c\
+			
+			
 
 SRCS	= ${SRCNAME}
 

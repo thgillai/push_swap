@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/20 16:22:53 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:41:16 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 int		swap(int *tab);
 int		swap_ss(int *tab1, int *tab2);
+int		rotate(int *pile);
 
 #endif
