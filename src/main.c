@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/20 16:51:20 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/22 10:14:13 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	test(int ac, t_pile *pile)
 	printf("pile a : ");
 	for(loop = 0; loop < pile->arg_nb_a; loop++)
 		printf("%d ", pile->a[loop]);
-	if (!rotate(pile->a))
+	if (!rot_rot(pile->a))
 		exit_error("Error\n");
 //	if (!swap(pile->b))
 //		exit_error("Error\n");

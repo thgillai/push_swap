@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/20 16:41:16 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/22 10:15:48 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int		ft_atoi(const char *str);
 int		swap(int *tab);
 int		swap_ss(int *tab1, int *tab2);
 int		rotate(int *pile);
+int		rot_rot(int *pile);
+int		rev_rot_rot(int *tab1, int *tab2);
+int		*ft_tabcpy(int *dest, int *src);
 
 #endif
