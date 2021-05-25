@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/22 10:15:48 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/25 11:47:00 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,23 @@ typedef struct s_pile
 	t_list	*firstb;
 }	t_pile;
 
-void	exit_error();
-void	*ft_calloc(size_t count, size_t size);
-int		ft_isdigit(int c);
-int		ft_atoi(const char *str);
+/* Operations */
 int		swap(int *tab);
 int		swap_ss(int *tab1, int *tab2);
 int		rotate(int *pile);
 int		rot_rot(int *pile);
 int		rev_rot_rot(int *tab1, int *tab2);
+int		push_a(t_pile *pile);
+int		push_b(t_pile *pile);
+
+/* Algo */
+
+
+/* Utils */
 int		*ft_tabcpy(int *dest, int *src);
+int		*addfronttab(int *tab, int add);
+int		*ft_addbacktab(int *tab, int add);
+
+
 
 #endif

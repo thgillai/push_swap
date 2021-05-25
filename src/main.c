@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/22 10:14:13 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/25 11:45:59 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,6 @@ void	pile_doublons(int arg, t_pile *pile)
 	}
 	if (count > 1)
 		exit_error("Error\n");
-}
-
-void	ft_freetab(char **tabs)
-{
-	int a;
-
-	a = 0;
-	while (tabs[a])
-	{
-		free(tabs[a]);
-		tabs[a] = NULL;
-		a++;
-	}
-	free(tabs);
-	tabs = NULL;
 }
 
 void	arg_is_str(char *av, t_pile *pile)
