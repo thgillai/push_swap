@@ -108,3 +108,5 @@ Mais au lieu de le diviser en 5 morceaux, il suffit de le diviser en 11 morceaux
 L'éventail des points d'action que j'ai obtenus était bien inférieur aux autres chiffres sur lesquels je l'ai testé.
 Outils que vous pouvez utiliser pour vous aider:
 Je ne saurais trop recommander ce visualiseur push_swap. Cet outil a été fait pour push_swap et il m'a vraiment aidé à optimiser mon code.
+
+Source: https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
