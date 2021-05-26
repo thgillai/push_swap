@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:43:48 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/22 10:17:50 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:38:55 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	rotate(int *tab)
 {
-	int i;
-	int j;
-	int len;
-	int *temp;
+	int	i;
+	int	j;
+	int	len;
+	int	*temp;
 
 	i = 1;
 	j = 0;
@@ -44,10 +44,10 @@ int	rev_rot(int *tab1, int *tab2)
 
 int	rot_rot(int *tab)
 {
-	int i;
-	int j;
-	int len;
-	int *temp;
+	int	i;
+	int	j;
+	int	len;
+	int	*temp;
 
 	i = 1;
 	j = 0;

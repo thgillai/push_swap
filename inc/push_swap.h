@@ -6,28 +6,25 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 10:34:02 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:32:06 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "../libft/inc/libft.h"
 # include <stdio.h>
 
 typedef struct s_pile
 {
-	int *a;
-	int *b;
-	int arg_nb_a;
-	int arg_nb_b;
-	char	*input;
-	t_list	*stacka;
-	t_list	*firsta;
-	t_list	*stackb;
-	t_list	*firstb;
-}	t_pile;
+	int		*a;
+	int		*b;
+	int		arg_nb_a;
+	int		arg_nb_b;
+	int		first_b_malloc;
+	int		first_a_malloc;
+}			t_pile;
 
 /* Operations */
 int		swap(int *tab);
@@ -39,13 +36,11 @@ int		push_a(t_pile *pile);
 int		push_b(t_pile *pile);
 
 /* Algo */
-int	algo(t_pile *pile);
+int		algo(t_pile	*pile);
 
 /* Utils */
 int		*ft_tabcpy(int *dest, int *src);
 int		*addfronttab(int *tab, int add);
 int		*ft_addbacktab(int *tab, int add);
-
-
 
 #endif

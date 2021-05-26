@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 13:00:27 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:08:51 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	find_min(t_pile *pile)
 {
-	int i;
-	int min;
+	int	i;
+	int	min;
 
 	i = 0;
 	min = pile->a[i];
-	while(pile->a[i])
+	while (pile->a[i])
 	{
-		if (pile->a[i] < min )
+		if (pile->a[i] < min)
 			min = pile->a[i];
 		i++;
 	}
@@ -41,9 +41,9 @@ int	find_min(t_pile *pile)
 	return (0);
 }
 
-int algo(t_pile *pile)
+int	algo(t_pile *pile)
 {
-	int loop;
+	int	loop;
 
 	loop = pile->arg_nb_a;
 	while (loop != 0)

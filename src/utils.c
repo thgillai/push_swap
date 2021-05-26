@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/26 13:01:01 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:39:57 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	*ft_addbacktab(int *tab, int add)
 {
-	int i;
-	int *new_tab;
-	
+	int	i;
+	int	*new_tab;
+
 	i = 0;
 	while (tab[i])
 		i++;
@@ -35,9 +35,9 @@ int	*ft_addbacktab(int *tab, int add)
 
 int	*addfronttab(int *tab, int add)
 {
-	int i;
-	int *new_tab;
-	
+	int	i;
+	int	*new_tab;
+
 	i = 0;
 	while (tab[i])
 		i++;
@@ -57,7 +57,7 @@ int	*addfronttab(int *tab, int add)
 int	*ft_tabcpy(int *dest, int *src)
 {
 	size_t	i;
-	size_t len;
+	size_t	len;
 
 	i = 0;
 	len = 0;

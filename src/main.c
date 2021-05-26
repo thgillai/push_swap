@@ -6,49 +6,38 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 10:50:11 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:36:05 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 void	test(t_pile *pile)
 {
-	int loop;
+	int	loop;
+	int	i;
 
+	i = 0;
 	/*printf("pile a : ");
 	for(loop = 0; loop < pile->arg_nb_a; loop++)
 		printf("%d ", pile->a[loop]);
 	if (!rot_rot(pile->a))
+		exit_error("Error\n");
+	if (!swap(pile->b))
 		exit_error("Error\n");*/
-//	if (!swap(pile->b))
-//		exit_error("Error\n");
-	printf("\npile a : ");
-	for(loop = 0; loop < pile->arg_nb_a; loop++)
+	printf("pile a : ");
+	for (loop = 0; loop < pile->arg_nb_a; loop++)
 		printf("%d ", pile->a[loop]);
+	printf("\npile b : ");
+	while (pile->b[i])
+		i++;
+	for (loop = 0; loop < i; loop++)
+		printf("%d ", pile->b[loop]);
 	printf("\n");
 }
 
-/*void	test(int ac, t_pile *pile)
-{
-	int loop;
-
-	ac = 0;
-	printf("pile a : ");
-	for(loop = 0; loop < pile->arg_nb_a; loop++)
-		printf("%d ", pile->a[loop]);
-	if (!rot_rot(pile->a))
-		exit_error("Error\n");
-//	if (!swap(pile->b))
-//		exit_error("Error\n");
-	printf("\npile a : ");
-	for(loop = 0; loop < pile->arg_nb_a; loop++)
-		printf("%d ", pile->a[loop]);
-	printf("\n");
-}*/
-
 void	pile_arg(char *arg, t_pile *pile)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (arg[j])
@@ -65,8 +54,8 @@ void	pile_arg(char *arg, t_pile *pile)
 
 void	pile_doublons(int arg, t_pile *pile)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -90,19 +79,15 @@ void	arg_is_str(char *av, t_pile *pile)
 	i = 0;
 	j = 0;
 	b = 0;
-
 	str = ft_split(av, ' ');
 	while (str[b] != NULL)
 		b++;
 	while (i < (b - 1) && str[i])
 	{
 		j = 0;
-		while (str[i][j])
-		{
+		while (str[i++][j])
 			if (!ft_isdigit(str[i][j++]))
 				exit_error("Error\n");
-		}
-		i++;
 	}
 	pile->a = malloc(sizeof (int *) * b);
 	if (!pile->a)

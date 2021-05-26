@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:01:14 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/20 17:01:32 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:04:08 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_freetab(char **tabs)
 {
-	int a;
+	int	a;
 
 	a = 0;
 	while (tabs[a])
