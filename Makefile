@@ -6,12 +6,12 @@
 #    By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/05/26 13:30:25 by thgillai         ###   ########.fr        #
+#    Updated: 2021/05/26 16:35:44 by thgillai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCNAME =	src/main.c src/swap.c src/rotate.c src/push.c src/utils.c \
-			src/algo.c \
+			src/algo.c src/algo_3nb.c src/algo_main.c \
 
 SRCS	= ${SRCNAME}
 
@@ -19,7 +19,7 @@ OBJS	= ${SRCS:.c=.o}
 
 NAME	= push_swap
 
-CC		= gcc -g #-fsanitize=address
+CC		= gcc -g -fsanitize=address
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -I. -I./libft
 
