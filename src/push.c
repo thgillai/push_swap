@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:33:56 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/26 13:38:26 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:37:00 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,23 @@
 int	push_a(t_pile *pile)
 {
 	int	tmp;
+	int	i;
+	int	*tab_tmp;
 
-	if (!pile->b)
-		return (0);
-	else
+	i = 0;
+	tab_tmp = 0;
+	if (pile->arg_nb_b != 0)
 	{
-		tmp = pile->a[0];
-		if (pile->first_a_malloc == 0)
-		{
-			pile->a = malloc(sizeof(int) * 1);
-			pile->first_a_malloc++;
-		}
+		tmp = pile->b[0];
+		i = 1;
+		while (i < pile->arg_nb_b)
+			tab_tmp = ft_addbacktab(tab_tmp, pile->b[i++]);
 		pile->a = ft_addbacktab(pile->a, tmp);
+		pile->arg_nb_a += 1;
+		pile->arg_nb_b -= 1;
+		free(pile->b);
+		pile->b = ft_tabcpy(pile->b, tab_tmp);
+		free(tab_tmp);
 	}
 	return (0);
 }
@@ -34,18 +39,23 @@ int	push_a(t_pile *pile)
 int	push_b(t_pile *pile)
 {
 	int	tmp;
+	int	i;
+	int	*tab_tmp;
 
-	if (!pile->a)
-		return (0);
-	else
+	i = 0;
+	tab_tmp = 0;
+	if (pile->arg_nb_a != 0)
 	{
 		tmp = pile->a[0];
-		if (pile->first_b_malloc == 0)
-		{
-			pile->b = malloc(sizeof(int) * 1);
-			pile->first_b_malloc++;
-		}
+		i = 1;
+		while (i < pile->arg_nb_a)
+			tab_tmp = ft_addbacktab(tab_tmp, pile->a[i++]);
 		pile->b = ft_addbacktab(pile->b, tmp);
+		pile->arg_nb_b += 1;
+		pile->arg_nb_a -= 1;
+		free(pile->a);
+		pile->a = ft_tabcpy(pile->a, tab_tmp);
+		free(tab_tmp);
 	}
 	return (0);
 }

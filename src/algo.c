@@ -3,14 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 13:08:51 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:37:33 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	test2(t_pile *pile)
+{
+	int	loop;
+	int	i;
+
+	i = 0;
+	/*printf("pile a : ");
+	for(loop = 0; loop < pile->arg_nb_a; loop++)
+		printf("%d ", pile->a[loop]);
+	if (!rot_rot(pile->a))
+		exit_error("Error\n");
+	if (!swap(pile->b))
+		exit_error("Error\n");*/
+	printf("pile a : ");
+	for (loop = 0; loop < pile->arg_nb_a; loop++)
+		printf("%d ", pile->a[loop]);
+	printf("\npile b : ");
+	while (pile->b && pile->b[i])
+		i++;
+	for (loop = 0; loop < i; loop++)
+		printf("%d ", pile->b[loop]);
+	printf("\n");
+}
 
 int	find_min(t_pile *pile)
 {
@@ -26,30 +50,35 @@ int	find_min(t_pile *pile)
 		i++;
 	}
 	i = 0;
+	printf("min = %d\n", min);
 	while (pile->a[i])
 	{
-		if (min == pile->a[i])
+		if (min == pile->a[i++])
 			break ;
-		i++;
 	}
+	printf("\ni : %i\n", i);
 	while (i > 1)
 	{
-		rotate(pile->a);
+		rot_rot(pile->a);
+		printf("pilea[0] rot = %d\n", pile->a[0]);
 		i--;
 	}
+	printf("pilea[0] = %d\n", pile->a[0]);
 	push_b(pile);
 	return (0);
 }
 
 int	algo(t_pile *pile)
 {
-	int	loop;
-
-	loop = pile->arg_nb_a;
-	while (loop != 0)
+//	int	loop;
+	test2(pile);
+	//int loop = pile->arg_nb_a;
+	while (pile->arg_nb_a)
 	{
+//		push_b(pile);
 		find_min(pile);
-		loop--;
+//		test2(pile);
+		//loop--;
 	}
 	return (0);
 }
