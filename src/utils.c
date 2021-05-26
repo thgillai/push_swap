@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/26 13:39:57 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:37:21 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	*ft_addbacktab(int *tab, int add)
 	int	*new_tab;
 
 	i = 0;
-	while (tab[i])
+	while (tab && tab[i])
 		i++;
-	new_tab = malloc(sizeof(int) * (i + 1));
+	new_tab = malloc(sizeof(int *) * (i + 1));
 	i = 0;
-	while (tab[i])
+	while (tab && tab[i])
 	{
 		new_tab[i] = tab[i];
 		i++;
 	}
-	new_tab[i] = add;
+	new_tab[i]= add;
 	new_tab[i + 1] = 0;
 	free(tab);
 	return (new_tab);
@@ -39,12 +39,12 @@ int	*addfronttab(int *tab, int add)
 	int	*new_tab;
 
 	i = 0;
-	while (tab[i])
+	while (tab && tab[i])
 		i++;
-	new_tab = malloc(sizeof(int) * (i + 1));
+	new_tab = malloc(sizeof(int *) * (i + 1));
 	i = 0;
 	new_tab[0] = add;
-	while (tab[i])
+	while (tab && tab[i])
 	{
 		new_tab[i + 1] = tab[i];
 		i++;
