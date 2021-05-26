@@ -3,38 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 16:37:33 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:34:14 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void	test2(t_pile *pile)
-{
-	int	loop;
-	int	i;
-
-	i = 0;
-	/*printf("pile a : ");
-	for(loop = 0; loop < pile->arg_nb_a; loop++)
-		printf("%d ", pile->a[loop]);
-	if (!rot_rot(pile->a))
-		exit_error("Error\n");
-	if (!swap(pile->b))
-		exit_error("Error\n");*/
-	printf("pile a : ");
-	for (loop = 0; loop < pile->arg_nb_a; loop++)
-		printf("%d ", pile->a[loop]);
-	printf("\npile b : ");
-	while (pile->b && pile->b[i])
-		i++;
-	for (loop = 0; loop < i; loop++)
-		printf("%d ", pile->b[loop]);
-	printf("\n");
-}
 
 int	find_min(t_pile *pile)
 {
@@ -50,35 +26,33 @@ int	find_min(t_pile *pile)
 		i++;
 	}
 	i = 0;
-	printf("min = %d\n", min);
 	while (pile->a[i])
 	{
 		if (min == pile->a[i++])
 			break ;
 	}
-	printf("\ni : %i\n", i);
 	while (i > 1)
 	{
-		rot_rot(pile->a);
-		printf("pilea[0] rot = %d\n", pile->a[0]);
+		rotate(pile->a);
+		ft_putstr_fd("ra\n", 1);
 		i--;
 	}
-	printf("pilea[0] = %d\n", pile->a[0]);
 	push_b(pile);
+	ft_putstr_fd("pb\n", 1);
 	return (0);
 }
 
 int	algo(t_pile *pile)
 {
-//	int	loop;
-	test2(pile);
-	//int loop = pile->arg_nb_a;
+	int i;
+
+	i = 0;
 	while (pile->arg_nb_a)
-	{
-//		push_b(pile);
 		find_min(pile);
-//		test2(pile);
-		//loop--;
+	while (pile->arg_nb_b)
+	{
+		push_a(pile);
+		ft_putstr_fd("pa\n", 1);
 	}
 	return (0);
 }

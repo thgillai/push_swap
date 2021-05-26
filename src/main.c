@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 16:40:54 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:02:37 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,34 @@ void	test(t_pile *pile)
 	int	i;
 
 	i = 0;
-	/*printf("pile a : ");
-	for(loop = 0; loop < pile->arg_nb_a; loop++)
-		printf("%d ", pile->a[loop]);
-	if (!rot_rot(pile->a))
-		exit_error("Error\n");
-	if (!swap(pile->b))
-		exit_error("Error\n");*/
 	printf("pile a : ");
-	for (loop = 0; loop < pile->arg_nb_a; loop++)
-		printf("%d ", pile->a[loop]);
+	if (pile->a)
+	{
+		for (loop = 0; loop < pile->arg_nb_a; loop++)
+			printf("%d ", pile->a[loop]);
+	}
 	printf("\npile b : ");
-	while (pile->b[i])
-		i++;
-	for (loop = 0; loop < i; loop++)
-		printf("%d ", pile->b[loop]);
+	if (pile->b)
+	{
+		while (pile->b[i])
+			i++;
+		for (loop = 0; loop < i; loop++)
+			printf("%d ", pile->b[loop]);
+	}
 	printf("\n");
+}
+
+int	algo_main(t_pile *pile)
+{
+	if (pile->arg_nb_a <= 3)
+		algo_3nba(pile->a, pile->arg_nb_a);
+	if (pile->arg_nb_a <= 5 && pile->arg_nb_a >= 4)
+		algo_5nb(pile);
+	else
+	{
+		algo(pile);
+	}
+	return (0);
 }
 
 void	pile_arg(char *arg, t_pile *pile)
@@ -131,7 +143,7 @@ int	main(int ac, char **av)
 	}
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
-	algo(pile);
+	algo_main(pile);
 	test(pile);
 	return (0);
 }

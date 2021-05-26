@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 16:36:07 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:39:00 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ int		push_a(t_pile *pile);
 int		push_b(t_pile *pile);
 
 /* Algo */
-int		algo(t_pile	*pile);
-int		algo_3nb(t_pile *pile);
 int		algo_main(t_pile *pile);
+int		algo_3nba(int *pile, int arg_nb);
+int		algo_5nb(t_pile *pile);
+int		algo(t_pile	*pile);
 
 
 /* Utils */

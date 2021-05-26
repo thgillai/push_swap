@@ -6,13 +6,13 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:43:48 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 13:38:55 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:33:22 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	rotate(int *tab)
+int	rot_rot(int *tab)
 {
 	int	i;
 	int	j;
@@ -35,14 +35,14 @@ int	rotate(int *tab)
 	return (1);
 }
 
-int	rev_rot(int *tab1, int *tab2)
+int	rev_rot_rot(int *tab1, int *tab2)
 {
 	if (!rotate(tab1) || !rotate(tab2))
 		return (0);
 	return (1);
 }
 
-int	rot_rot(int *tab)
+int	rotate(int *tab)
 {
 	int	i;
 	int	j;
@@ -65,7 +65,7 @@ int	rot_rot(int *tab)
 	return (1);
 }
 
-int	rev_rot_rot(int *tab1, int *tab2)
+int	rev_rot(int *tab1, int *tab2)
 {
 	if (!rot_rot(tab1) || !rot_rot(tab2))
 		return (0);

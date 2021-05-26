@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:33:56 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/26 16:37:00 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:14:15 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	push_a(t_pile *pile)
 		i = 1;
 		while (i < pile->arg_nb_b)
 			tab_tmp = ft_addbacktab(tab_tmp, pile->b[i++]);
-		pile->a = ft_addbacktab(pile->a, tmp);
+		pile->a = addfronttab(pile->a, tmp);
 		pile->arg_nb_a += 1;
 		pile->arg_nb_b -= 1;
 		free(pile->b);
@@ -50,7 +50,7 @@ int	push_b(t_pile *pile)
 		i = 1;
 		while (i < pile->arg_nb_a)
 			tab_tmp = ft_addbacktab(tab_tmp, pile->a[i++]);
-		pile->b = ft_addbacktab(pile->b, tmp);
+		pile->b = addfronttab(pile->b, tmp);
 		pile->arg_nb_b += 1;
 		pile->arg_nb_a -= 1;
 		free(pile->a);
