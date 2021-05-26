@@ -1,41 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 15:33:56 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/26 13:01:14 by thgillai         ###   ########.fr       */
+/*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
+/*   Updated: 2021/05/26 13:00:27 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	push_a(t_pile *pile)
+int	find_min(t_pile *pile)
 {
-	int tmp;
+	int i;
+	int min;
 
-	if (!pile->b)
-		return(0);
-	else
+	i = 0;
+	min = pile->a[i];
+	while(pile->a[i])
 	{
-		tmp = pile->b[0];
-		pile->a = ft_addbacktab(pile->a, tmp);
+		if (pile->a[i] < min )
+			min = pile->a[i];
+		i++;
 	}
-	return(0);
+	i = 0;
+	while (pile->a[i])
+	{
+		if (min == pile->a[i])
+			break ;
+		i++;
+	}
+	while (i > 1)
+	{
+		rotate(pile->a);
+		i--;
+	}
+	push_b(pile);
+	return (0);
 }
 
-int	push_b(t_pile *pile)
+int algo(t_pile *pile)
 {
-	int tmp;
+	int loop;
 
-	if (!pile->a)
-		return (0);
-	else
+	loop = pile->arg_nb_a;
+	while (loop != 0)
 	{
-		tmp = pile->a[0];
-		pile->b = ft_addbacktab(pile->b, tmp);
+		find_min(pile);
+		loop--;
 	}
-	return(0);
+	return (0);
 }

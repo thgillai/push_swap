@@ -3,16 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/25 11:45:59 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/26 10:50:11 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+void	test(t_pile *pile)
+{
+	int loop;
 
-void	test(int ac, t_pile *pile)
+	/*printf("pile a : ");
+	for(loop = 0; loop < pile->arg_nb_a; loop++)
+		printf("%d ", pile->a[loop]);
+	if (!rot_rot(pile->a))
+		exit_error("Error\n");*/
+//	if (!swap(pile->b))
+//		exit_error("Error\n");
+	printf("\npile a : ");
+	for(loop = 0; loop < pile->arg_nb_a; loop++)
+		printf("%d ", pile->a[loop]);
+	printf("\n");
+}
+
+/*void	test(int ac, t_pile *pile)
 {
 	int loop;
 
@@ -28,7 +44,7 @@ void	test(int ac, t_pile *pile)
 	for(loop = 0; loop < pile->arg_nb_a; loop++)
 		printf("%d ", pile->a[loop]);
 	printf("\n");
-}
+}*/
 
 void	pile_arg(char *arg, t_pile *pile)
 {
@@ -130,6 +146,7 @@ int	main(int ac, char **av)
 	}
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
-	test(ac - 1, pile);
+	algo(pile);
+	test(pile);
 	return (0);
 }
