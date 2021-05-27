@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:19:44 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/27 14:19:47 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:09:49 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,19 @@ void	test2(t_pile *pile)
 int	find_min_5nb(t_pile *pile)
 {
 	int i;
-//	int b;
 	int min;
-	int ref;
 
 	min = 0;
-	ref = pile->b[0];
-
 	i = 0;
-//	b = 0;
 	while (pile->a[i])
 	{
-		if (pile->a[i] > ref)
+		if (pile->a[i] > pile->b[0])
 		{
-/*			b = i;
-			while (pile->a[b])
-			{
-				if (pile->a[b] > ref)
-					break;
-				b++;
-			}
-			if (!pile->a[b])
-			{
-*/				min = i;
-				break;
-//			}
+			min = i;
+			break;
 		}
 		i++;
 	}	
-	printf("min = %d\n", min);
 	return (min);
 }
 int ft_min(t_pile *pile)
@@ -143,60 +127,45 @@ int	algo_5nb(t_pile *pile)
 	row = 0;
 	min = 0;
 	if (pile->arg_nb_a == 5)
+		i = 2;
+	else
+		i = 1;
+	while(i--)
 	{
-		while(i < 2)
-		{
-			push_b(pile);
-			ft_putstr_fd("pb\n", 1);
-			i++;
-		}
-		algo_3nba(pile->a, 3);
+		push_b(pile);
+		ft_putstr_fd("pb\n", 1);
 	}
-	test2(pile);
-	if (pile->arg_nb_a == 3)
+	if (pile->arg_nb_b > 1 && pile->b[0] > pile->b[1])
+	{
+		swap(pile->b);
+		ft_putstr_fd("sb\n", 1);
+	}
+	algo_3nba(pile->a, 3);
+	while (pile->arg_nb_b)
 	{
 		row = find_min_5nb(pile);
-		printf("row : %i\n", row);
 		if (row == 1)
 		{
 			rotate(pile->a);
 			ft_putstr_fd("ra\n", 1);
 		}
-		if (row == 2)
+		else if (row == 2 && pile->arg_nb_a == 3)
 		{
 			rot_rot(pile->a);
 			ft_putstr_fd("rra\n", 1);
 		}
-		push_a(pile);
-		ft_putstr_fd("pa\n", 1);
-	}
-	test2(pile);
-	if (pile->arg_nb_a == 4)
-	{	
-		row = find_min_5nb(pile);
-		printf("row : %i\n", row);
-		if (row == 0)
+		else if (row == 0 && pile->arg_nb_a == 4)
 		{
-			printf("ft_min : %i\n", ft_min(pile));
-			printf("ft_max : %i\n", ft_max(pile));
 			if (pile->a[0] < pile->b[0] || pile->b[0] > ft_max(pile) || pile->b[0] < ft_min(pile))
-			{
-				printf("\nin resort\n");
 				ft_resort_tab(pile);
-			}
 		}
-		if (row == 1)
-		{
-			rotate(pile->a);
-			ft_putstr_fd("ra\n", 1);
-		}
-		if (row == 2)
+		else if (row == 2 && pile->arg_nb_a == 4)
 		{
 			rot_rot(pile->a);
 			rot_rot(pile->a);
 			ft_putstr_fd("rra\nrra\n", 1);
 		}
-		if (row == 3)
+		else if (row == 3 && pile->arg_nb_a == 4)
 		{
 			rot_rot(pile->a);
 			ft_putstr_fd("rra\n", 1);
