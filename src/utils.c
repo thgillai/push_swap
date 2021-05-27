@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/26 18:14:47 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:28:53 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	*ft_addbacktab(int *tab, int add)
 		new_tab[i] = tab[i];
 		i++;
 	}
-	new_tab[i]= add;
+	new_tab[i] = add;
 	new_tab[i + 1] = 0;
 	free(tab);
 	return (new_tab);

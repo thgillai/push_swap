@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_5nb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:19:44 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/27 16:09:49 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:49:57 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	test2(t_pile *pile)
 
 int	find_min_5nb(t_pile *pile)
 {
-	int i;
-	int min;
+	int	i;
+	int	min;
 
 	min = 0;
 	i = 0;
@@ -47,16 +47,17 @@ int	find_min_5nb(t_pile *pile)
 		if (pile->a[i] > pile->b[0])
 		{
 			min = i;
-			break;
+			break ;
 		}
 		i++;
 	}	
 	return (min);
 }
-int ft_min(t_pile *pile)
+
+int	ft_min(t_pile *pile)
 {
-	int i;
-	int min;
+	int	i;
+	int	min;
 
 	i = 0;
 	min = pile->a[0];
@@ -69,10 +70,10 @@ int ft_min(t_pile *pile)
 	return (min);
 }
 
-int ft_max(t_pile *pile)
+int	ft_max(t_pile *pile)
 {
-	int i;
-	int max;
+	int	i;
+	int	max;
 
 	i = 0;
 	max = pile->a[0];
@@ -84,11 +85,12 @@ int ft_max(t_pile *pile)
 	}
 	return (max);
 }
-int ft_resort_tab(t_pile *pile)
+
+int	ft_resort_tab(t_pile *pile)
 {
-	int i;
-	int min;
-	int row;
+	int	i;
+	int	min;
+	int	row;
 
 	i = 0;
 	min = pile->a[0];
@@ -103,25 +105,29 @@ int ft_resort_tab(t_pile *pile)
 		i++;
 	}
 	if (row > 0 && row <= 2)
+	{
 		while (row--)
 		{
 			ft_putstr_fd("ra\n", 1);
 			rotate(pile->a);
 		}
+	}
 	if (row > 2)
+	{
 		while (!(pile->a[0] == min))
 		{
 			ft_putstr_fd("rra\n", 1);
 			rot_rot(pile->a);
 		}
+	}
 	return (0);
 }
 
 int	algo_5nb(t_pile *pile)
 {
-	int i;
-	int row;
-	int min;
+	int	i;
+	int	row;
+	int	min;
 
 	i = 0;
 	row = 0;
@@ -130,7 +136,7 @@ int	algo_5nb(t_pile *pile)
 		i = 2;
 	else
 		i = 1;
-	while(i--)
+	while (i--)
 	{
 		push_b(pile);
 		ft_putstr_fd("pb\n", 1);
@@ -156,7 +162,8 @@ int	algo_5nb(t_pile *pile)
 		}
 		else if (row == 0 && pile->arg_nb_a == 4)
 		{
-			if (pile->a[0] < pile->b[0] || pile->b[0] > ft_max(pile) || pile->b[0] < ft_min(pile))
+			if (pile->a[0] < pile->b[0] || pile->b[0] > ft_max(pile)
+				|| pile->b[0] < ft_min(pile))
 				ft_resort_tab(pile);
 		}
 		else if (row == 2 && pile->arg_nb_a == 4)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/26 18:39:00 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:00:06 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef struct s_pile
 	int		first_a_malloc;
 }			t_pile;
 
+/* Main */
+
+void	pile_doublons(int arg, t_pile *pile);
+void	pile_arg(char *arg, t_pile *pile);
+int		algo_main(t_pile *pile);
+
 /* Operations */
 int		swap(int *tab);
 int		swap_ss(int *tab1, int *tab2);
@@ -40,7 +46,6 @@ int		algo_main(t_pile *pile);
 int		algo_3nba(int *pile, int arg_nb);
 int		algo_5nb(t_pile *pile);
 int		algo(t_pile	*pile);
-
 
 /* Utils */
 int		*ft_tabcpy(int *dest, int *src);
