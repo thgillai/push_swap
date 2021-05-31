@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_5nb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:19:44 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/27 16:49:57 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/05/31 14:16:24 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,38 +52,6 @@ int	find_min_5nb(t_pile *pile)
 		i++;
 	}	
 	return (min);
-}
-
-int	ft_min(t_pile *pile)
-{
-	int	i;
-	int	min;
-
-	i = 0;
-	min = pile->a[0];
-	while (pile->a[i])
-	{
-		if (min > pile->a[i])
-			min = pile->a[i];
-		i++;
-	}
-	return (min);
-}
-
-int	ft_max(t_pile *pile)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = pile->a[0];
-	while (pile->a[i])
-	{
-		if (max < pile->a[i])
-			max = pile->a[i];
-		i++;
-	}
-	return (max);
 }
 
 int	ft_resort_tab(t_pile *pile)
@@ -162,8 +130,8 @@ int	algo_5nb(t_pile *pile)
 		}
 		else if (row == 0 && pile->arg_nb_a == 4)
 		{
-			if (pile->a[0] < pile->b[0] || pile->b[0] > ft_max(pile)
-				|| pile->b[0] < ft_min(pile))
+			if (pile->a[0] < pile->b[0] || pile->b[0] > ft_max(pile->a)
+				|| pile->b[0] < ft_min(pile->a))
 				ft_resort_tab(pile);
 		}
 		else if (row == 2 && pile->arg_nb_a == 4)

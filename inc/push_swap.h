@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/27 17:00:06 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/05/31 14:14:20 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int		algo(t_pile	*pile);
 int		*ft_tabcpy(int *dest, int *src);
 int		*addfronttab(int *tab, int add);
 int		*ft_addbacktab(int *tab, int add);
+int		ft_max(int *pile);
+int		ft_min(int *pile);
 
 #endif
