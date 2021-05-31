@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/31 14:06:51 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:39:41 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,65 @@ int	algo(t_pile *pile)
 	}
 	return (0);
 }
+
+// Work inprogress
+
+/*int    fill_chunk(t_pile *pile, t_data *data)
+{
+    int i;
+    
+    i = 0;
+    data->min = ft_min(pile->a);
+    while (i < pile->arg_nb_a)
+    {
+        if (data->min == pile->a[i])
+        {
+            data->row = i;
+            break ;
+        }
+        i++;
+    }
+    i = 0;
+    if (data->row > pile->arg_nb_a / 2)
+    {
+        while (data->row < pile->arg_nb_a)
+        {
+            rev_rot(pile->a);
+            data->row++;
+        }
+        rev_rot(pile->a);
+    }
+    else
+    {
+        while (data->row)
+        {
+            rotate(pile->a);
+            data->row--;
+        }
+    }
+    push_b(pile);
+    return (0);
+}
+
+int        algo(t_pile *pile)
+{
+    int i;
+    t_data *data;
+    
+    i = 0;
+    data = ft_calloc(1, sizeof(t_data));
+    data->chunk_nb = 5;
+    data->chunk_size = pile->arg_nb_a / data->chunk_nb;
+    if (pile->arg_nb_a % data->chunk_size != 0)
+        data->chunk_nb++;
+    while (data->chunk_nb)
+    {
+        while (data->chunk_size)
+        {
+            fill_chunk(pile, data);
+            data->chunk_size--;
+        }
+        data->chunk_nb--;
+    }
+    return (0);
+}*/
