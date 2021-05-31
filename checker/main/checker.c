@@ -6,7 +6,7 @@
 /*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:29:35 by aglorios          #+#    #+#             */
-/*   Updated: 2021/05/31 15:37:35 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:35:25 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	main(int ac, char **av)
 	}
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
-	if (!checker_algo(pile))
-		exit_error("Error\n");
+	checker_algo(pile);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:31:50 by aglorios          #+#    #+#             */
-/*   Updated: 2021/05/31 16:51:16 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:34:02 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ int ft_cmd(t_pile *pile, char *cmd)
 		push_a(pile);
 	else if (!(ft_strncmp(cmd, "pb", 3)))
 		push_b(pile);
-	else if (!(ft_strncmp(cmd, "rra", 4)))
+	else if (!(ft_strncmp(cmd, "ra", 3)))
 		rotate(pile->a);
-	else if (!(ft_strncmp(cmd, "rrb", 4)))
+	else if (!(ft_strncmp(cmd, "rb", 3)))
 		rotate(pile->b);
-	else if (!(ft_strncmp(cmd, "rrr", 4)))
+	else if (!(ft_strncmp(cmd, "rr", 3)))
 	{
 		rotate(pile->a);
 		rotate(pile->b);
 	}
-	else if (!(ft_strncmp(cmd, "ra", 3)))
+	else if (!(ft_strncmp(cmd, "rra", 4)))
 		rot_rot(pile->a);
-	else if (!(ft_strncmp(cmd, "rb", 3)))
+	else if (!(ft_strncmp(cmd, "rrb", 4)))
 		rot_rot(pile->b);
-	else if (!(ft_strncmp(cmd, "rr", 3)))
+	else if (!(ft_strncmp(cmd, "rrr", 4)))
 	{
 		rot_rot(pile->a);
 		rot_rot(pile->b);
