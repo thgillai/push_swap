@@ -16,7 +16,6 @@ int	algo(t_pile *pile)
 {
 	int i;
 	int j;
-	int f;
 	int *ref;
 	t_data *data;
 
@@ -24,6 +23,7 @@ int	algo(t_pile *pile)
 	j = 0;
 	data = ft_calloc(1, sizeof(t_data));
 	ref = NULL;
+	data->chunk_nb = 5;
 	ref = ft_tabcpy(ref, pile->a);
 	bubble_sort(ref, pile->arg_nb_a);
 	data->chunk_size = pile->arg_nb_a / data->chunk_nb;
@@ -31,13 +31,21 @@ int	algo(t_pile *pile)
 		data->chunk_nb++;
 	while (j++ < data->chunk_nb)
 	{
-		while (pile->a[i++])
+		while (i++ < pile->arg_nb_a)
 		{
-			if (pile->a[i] >= ref[(pile->arg_nb_a / data->chunk_nb) * j]
-				&& pile->a[i] < ref[(pile->arg_nb_a / data->chunk_nb) * (j + 1)])
+			if (pile->a[0] >= ref[(pile->arg_nb_a / data->chunk_nb) * j]
+				&& pile->a[0] < ref[(pile->arg_nb_a / data->chunk_nb) * (j + 1)])
 				push_b(pile);
+			else
+				rotate(pile->a);
 		}
 	}
-
+	/*printf("\npile A: ");
+	for (int loop = 0; loop < pile->arg_nb_a; loop++)
+		printf("%i ", pile->a[loop]);
+	printf("\npile B: ");
+	for (int loop1 = 0; loop1 < pile->arg_nb_b; loop1++)
+		printf("%i ", pile->a[loop1]);
+	printf("\n");*/
 	return (0);
 }
