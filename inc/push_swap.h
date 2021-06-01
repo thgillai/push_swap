@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/31 14:14:20 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/01 16:06:50 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ typedef struct s_pile
 	int		first_b_malloc;
 	int		first_a_malloc;
 }			t_pile;
+
+typedef struct s_data
+{
+	int	min;
+	int	max;
+	int	row;
+	int	chunk_nb;
+	int	chunk_size;
+}			t_data;
 
 /* Main */
 
@@ -53,5 +62,6 @@ int		*addfronttab(int *tab, int add);
 int		*ft_addbacktab(int *tab, int add);
 int		ft_max(int *pile);
 int		ft_min(int *pile);
+int		ft_row(int *tab, int find);
 
 #endif
