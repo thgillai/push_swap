@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 15:30:40 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:01:41 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,19 @@ int ft_max_pos(int *pile, int max, int len)
 
 int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 {
+	int start;
+	int end;
+
 	i = pile->arg_nb_a + 1;
 	free(data->refchunk);
 	data->refchunk = 0;
-	printf("\nchunk_size : %i", data->chunk_size);
-	data->chunk_size = 0;
-	data->chunk_size = ((pile->arg_nb_a / data->chunk_nb) * (j + 1)) - ((pile->arg_nb_a / data->chunk_nb) * j);
-	printf("\nchunk_size : %i", data->chunk_size);
-	data->refchunk = tabncpy(data->ref, ((pile->arg_nb_a / data->chunk_nb) * j), ((pile->arg_nb_a / data->chunk_nb) * (j + 1)), pile->arg_nb_a);
+	start = ((pile->arg_nb_a / data->chunk_nb) * (j));
+	end = ((pile->arg_nb_a / data->chunk_nb) * (j + 1));
+	printf("\nchunk_size_end : %i", end);
+	printf("\nchunk_size_start : %i", start);
+	data->chunk_size = end - start;
+	printf("\nchunk_size : %i\n", data->chunk_size);
+	data->refchunk = tabncpy(data->ref, start, end, pile->arg_nb_a);
 	while (i--)
 	{
 //		test3(pile);
@@ -127,7 +132,7 @@ int	algo(t_pile *pile)
 	i = 0;
 	j = 0;
 	data = ft_calloc(1, sizeof(t_data));
-	data->ref = NULL;
+	data->ref = 0;
 	data->ref = ft_tabcpy(data->ref, pile->a);
 	bubble_sort(data->ref, pile->arg_nb_a);
 	data->refchunk = 0;

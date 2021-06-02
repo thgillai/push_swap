@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:02:36 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 13:49:29 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:04:33 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ int	*tabncpy(int *src, int start, int end, int len)
 	int		i;
 	int		*dest;
 
-//	printf("\nstart %i ",start);
+//	printf("\nstart %i \n",start);
 //	printf("\nend %i ", end);
 //	printf("\nlen %i ",len);
 //	printf("\nPILE COPY : ");
-	i = start;
+//	printf("\nsize : %i\n", end - start);
+	i = 0;
 	if (!src || start < 0 || start > end || end > len)
 		return (0);
 	if (end > len)
@@ -43,15 +44,16 @@ int	*tabncpy(int *src, int start, int end, int len)
 	dest = malloc(sizeof(int *) * (end - start));
 	if (!dest)
 		return (0);
+	i = start;
 	while (i < end)
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = 0;
-//	i = 0;
-//	while (i <= end - start)
-//		printf("%i ",dest[i++]);
+	i = 0;
+	while (i <= end - start)
+		printf("end ncpy : %i ",dest[i++]);
 //	printf("%i ",dest[i]);
 //	printf("\n");
 	return (dest);
