@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/01 16:06:50 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 14:28:45 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_data
 	int	row;
 	int	chunk_nb;
 	int	chunk_size;
+	int *ref;
+	int *refchunk;
 }			t_data;
 
 /* Main */
@@ -58,10 +60,14 @@ int		algo(t_pile	*pile);
 
 /* Utils */
 int		*ft_tabcpy(int *dest, int *src);
+int		*tabncopy(int *src, int start, int end, int len);
 int		*addfronttab(int *tab, int add);
 int		*ft_addbacktab(int *tab, int add);
 int		ft_max(int *pile);
 int		ft_min(int *pile);
 int		ft_row(int *tab, int find);
+int		*tabncpy(int *src, int start, int end, int len);
+int		occurence(int *tab, int nb, int len);
+
 
 #endif

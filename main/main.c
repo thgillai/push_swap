@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/01 15:53:01 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 13:39:26 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void	test(t_pile *pile)
 	printf("\npile b : ");
 	if (pile->b)
 	{
-		while (pile->b[i])
-			i++;
-		for (loop = 0; loop < i; loop++)
+		for (loop = 0; loop < pile->arg_nb_b; loop++)
 			printf("%d ", pile->b[loop]);
 	}
 	printf("\n");
