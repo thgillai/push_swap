@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 16:01:41 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:40:21 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,12 @@ int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 	int end;
 
 	i = pile->arg_nb_a + 1;
-	free(data->refchunk);
-	data->refchunk = 0;
 	start = ((pile->arg_nb_a / data->chunk_nb) * (j));
 	end = ((pile->arg_nb_a / data->chunk_nb) * (j + 1));
-	printf("\nchunk_size_end : %i", end);
-	printf("\nchunk_size_start : %i", start);
+//	printf("\nchunk_size_end : %i", end);
+//	printf("\nchunk_size_start : %i", start);
 	data->chunk_size = end - start;
-	printf("\nchunk_size : %i\n", data->chunk_size);
+//	printf("\nchunk_size : %i\n", data->chunk_size);
 	data->refchunk = tabncpy(data->ref, start, end, pile->arg_nb_a);
 	while (i--)
 	{
@@ -84,7 +82,7 @@ int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 			push_b(pile);
 			ft_putstr_fd("pb\n", 1);
 		}
-		else
+		else if (i)
 		{
 			rotate(pile->a);
 			ft_putstr_fd("ra\n", 1);
@@ -95,7 +93,7 @@ int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 
 int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
 {
-	push_to_b(pile, data, i, j);
+	push_to_b(pile, data, i, j);	
 	while (pile->arg_nb_b)
 	{
 //		test3(pile);
@@ -120,6 +118,13 @@ int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
 		push_a(pile);
 		ft_putstr_fd("pa\n", 1);
 	}
+	i = ft_max(data->refchunk);
+	while (pile->a[pile->arg_nb_a - 1] != i)
+	{
+		rotate(pile->a);
+		ft_putstr_fd("ra\n", 1);
+	}
+	free(data->refchunk);
 	return (0);
 }
 
@@ -144,7 +149,7 @@ int	algo(t_pile *pile)
 	{
 		fill_chunk(pile, data, i, j);
 		j++;
-		test3(pile);
+//		test3(pile);
 	}
 	return (0);
 }

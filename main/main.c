@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 13:39:26 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:39:18 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ int	main(int ac, char **av)
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
 	algo_main(pile);
-	test(pile);
+//	test(pile);
 	return (0);
 }

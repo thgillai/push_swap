@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:02:36 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 16:04:33 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:33:27 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_row(int *tab, int find)
 int	*tabncpy(int *src, int start, int end, int len)
 {
 	int		i;
+	int		a;
 	int		*dest;
 
 //	printf("\nstart %i \n",start);
@@ -36,6 +37,8 @@ int	*tabncpy(int *src, int start, int end, int len)
 //	printf("\nlen %i ",len);
 //	printf("\nPILE COPY : ");
 //	printf("\nsize : %i\n", end - start);
+	dest = 0;
+	a = 0;
 	i = 0;
 	if (!src || start < 0 || start > end || end > len)
 		return (0);
@@ -47,13 +50,15 @@ int	*tabncpy(int *src, int start, int end, int len)
 	i = start;
 	while (i < end)
 	{
-		dest[i] = src[i];
+//		printf("\nwhile src: %i ",src[i]);
+		dest[a++] = src[i];
+//		printf("\nwhile dest: %i ", dest[i]);
 		i++;
 	}
-	dest[i] = 0;
-	i = 0;
-	while (i <= end - start)
-		printf("end ncpy : %i ",dest[i++]);
+	dest[a] = 0;
+//	i = 0;
+//	while (i <= end - start)
+//		printf("end ncpy : %i ",dest[i++]);
 //	printf("%i ",dest[i]);
 //	printf("\n");
 	return (dest);
