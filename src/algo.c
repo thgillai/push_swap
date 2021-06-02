@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 18:31:57 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 18:45:28 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	push_to_a_last_chunk(t_pile *pile, t_data *data, int i)
 {	
 	while (pile->arg_nb_b)
 	{
-		data->min = ft_min(pile->b);
+		data->min = ft_max(pile->b);
 		i = ft_pos(pile->b, data->min, pile->arg_nb_b);
 		while (pile->b[0] != data->min)
 		{
@@ -121,8 +121,6 @@ int	push_to_a_last_chunk(t_pile *pile, t_data *data, int i)
 	//	test3(pile);
 		push_a(pile);
 		ft_putstr_fd("pa\n", 1);
-		rotate(pile->a);
-		ft_putstr_fd("ra\n", 1);
 	}
 	return (0);
 }
@@ -147,10 +145,17 @@ int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
 
 int	last_chunk(t_pile *pile, t_data *data, int i)
 {
-	data->min = ft_min(pile->a);
-	while (pile->a[0] != data->min)
+	while (pile->a[0] != ft_min(pile->a))
+	{
 		push_b(pile);
+		ft_putstr_fd("pb\n", 1);
+	}
 	push_to_a_last_chunk(pile, data, i);
+	while (pile->a[0] != ft_min(pile->a))
+	{
+		rotate(pile->a);
+		ft_putstr_fd("ra\n", 1);
+	}
 	return (0);
 }
 

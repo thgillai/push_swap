@@ -18,7 +18,6 @@ do
 		((i+=1))
 	fi
 done
-echo ${TAB[*]} > values
 echo /////////VALUES////////
 echo ${TAB[*]}
 echo ////////////////////////
