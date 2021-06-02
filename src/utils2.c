@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:02:36 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 16:33:27 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 17:00:31 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ int	*tabncpy(int *src, int start, int end, int len)
 	int		a;
 	int		*dest;
 
-//	printf("\nstart %i \n",start);
-//	printf("\nend %i ", end);
-//	printf("\nlen %i ",len);
-//	printf("\nPILE COPY : ");
-//	printf("\nsize : %i\n", end - start);
 	dest = 0;
 	a = 0;
 	i = 0;
@@ -50,17 +45,10 @@ int	*tabncpy(int *src, int start, int end, int len)
 	i = start;
 	while (i < end)
 	{
-//		printf("\nwhile src: %i ",src[i]);
 		dest[a++] = src[i];
-//		printf("\nwhile dest: %i ", dest[i]);
 		i++;
 	}
 	dest[a] = 0;
-//	i = 0;
-//	while (i <= end - start)
-//		printf("end ncpy : %i ",dest[i++]);
-//	printf("%i ",dest[i]);
-//	printf("\n");
 	return (dest);
 }
 
@@ -69,19 +57,11 @@ int	occurence(int *tab, int nb, int len)
 	int i;
 
 	i = 0;
-
-//	printf("\nnb = %i ",nb);
-//	printf("\nlen = %i ",len);
 	while (i < len)
 	{
-//		printf("\ntab : %i ",tab[i]);
 		if (tab[i] == nb)
-		{
-//			printf("ok\n");
 			return (1);
-		}
 		i++;
 	}
-//	printf("\nout occurence");
 	return (0);
 }

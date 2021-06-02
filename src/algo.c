@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 16:40:21 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/02 18:31:57 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,14 @@ void	test3(t_pile *pile)
 	printf("\n");
 }
 
-int ft_min_pos(int *pile, int min, int len)
+int ft_pos(int *pile, int pos, int len)
 {
 	int i;
 
 	i = 0;
 	while (i < len)
 	{
-		if (pile[i] == min)
-			return (i);
-		i++;
-	}
-	return (0);
-}
-
-int ft_max_pos(int *pile, int max, int len)
-{
-	int i;
-
-	i = 0;
-	while (i < len)
-	{
-		if (pile[i] == max)
+		if (pile[i] == pos)
 			return (i);
 		i++;
 	}
@@ -69,14 +55,10 @@ int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 	i = pile->arg_nb_a + 1;
 	start = ((pile->arg_nb_a / data->chunk_nb) * (j));
 	end = ((pile->arg_nb_a / data->chunk_nb) * (j + 1));
-//	printf("\nchunk_size_end : %i", end);
-//	printf("\nchunk_size_start : %i", start);
 	data->chunk_size = end - start;
-//	printf("\nchunk_size : %i\n", data->chunk_size);
 	data->refchunk = tabncpy(data->ref, start, end, pile->arg_nb_a);
 	while (i--)
 	{
-//		test3(pile);
 		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1 )
 		{
 			push_b(pile);
@@ -91,17 +73,12 @@ int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 	return (0);
 }
 
-int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
-{
-	push_to_b(pile, data, i, j);	
+int	push_to_a(t_pile *pile, t_data *data, int i)
+{	
 	while (pile->arg_nb_b)
 	{
-//		test3(pile);
 		data->max = ft_max(pile->b);
-		i = ft_max_pos(pile->b, data->min, pile->arg_nb_b);
-//		printf("\nmin : %i", data->min);
-//		printf("\npos : %i", pile->b[0]);
-//		printf("\ni : %i", i);
+		i = ft_pos(pile->b, data->max, pile->arg_nb_b);
 		while (pile->b[0] != data->max)
 		{
 			if (i > pile->arg_nb_b / 2)
@@ -118,6 +95,45 @@ int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
 		push_a(pile);
 		ft_putstr_fd("pa\n", 1);
 	}
+	return (0);
+}
+
+int	push_to_a_last_chunk(t_pile *pile, t_data *data, int i)
+{	
+	while (pile->arg_nb_b)
+	{
+		data->min = ft_min(pile->b);
+		i = ft_pos(pile->b, data->min, pile->arg_nb_b);
+		while (pile->b[0] != data->min)
+		{
+			if (i > pile->arg_nb_b / 2)
+			{
+				rot_rot(pile->b);
+				ft_putstr_fd("rrb\n", 1);
+			}
+			else
+			{
+				rotate(pile->b);
+				ft_putstr_fd("rb\n", 1);
+			}
+		}
+	//	printf("push : %i", pile->b[0]);
+	//	test3(pile);
+		push_a(pile);
+		ft_putstr_fd("pa\n", 1);
+		rotate(pile->a);
+		ft_putstr_fd("ra\n", 1);
+	}
+	return (0);
+}
+
+int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
+{
+	int pos;
+
+	pos = 0;
+	push_to_b(pile, data, i, j);
+	push_to_a(pile, data, i);
 	i = ft_max(data->refchunk);
 	while (pile->a[pile->arg_nb_a - 1] != i)
 	{
@@ -125,6 +141,16 @@ int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
 		ft_putstr_fd("ra\n", 1);
 	}
 	free(data->refchunk);
+
+	return (0);
+}
+
+int	last_chunk(t_pile *pile, t_data *data, int i)
+{
+	data->min = ft_min(pile->a);
+	while (pile->a[0] != data->min)
+		push_b(pile);
+	push_to_a_last_chunk(pile, data, i);
 	return (0);
 }
 
@@ -143,13 +169,16 @@ int	algo(t_pile *pile)
 	data->refchunk = 0;
 	data->chunk_nb = 5;
 	data->chunk_size = pile->arg_nb_a / data->chunk_nb;
-	if (pile->arg_nb_a % data->chunk_size != 0)
-		data->chunk_nb++;
-	while (j < data->chunk_nb)
+//	if (pile->arg_nb_a % data->chunk_size == 0)
+//		data->chunk_nb++;
+//	printf("\n%i", data->chunk_nb);
+	while (j < 5)
 	{
 		fill_chunk(pile, data, i, j);
 		j++;
-//		test3(pile);
 	}
+	if (pile->a[0] != ft_min(pile->a))
+		last_chunk(pile, data, i);
+//	test3(pile);
 	return (0);
 }

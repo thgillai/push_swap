@@ -19,6 +19,13 @@ do
 	fi
 done
 echo ${TAB[*]} > values
+echo /////////VALUES////////
+echo ${TAB[*]}
+echo ////////////////////////
 ARG=$(cat values);
+echo "moves et checker mac :"
 ./push_swap $ARG | wc -l
 ./push_swap $ARG | ./checker_Mac $ARG
+echo "checker :"
+./push_swap $ARG | ./checker/checker $ARG
+
