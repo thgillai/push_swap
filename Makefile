@@ -6,7 +6,7 @@
 #    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/06/03 13:01:19 by aglorios         ###   ########.fr        #
+#    Updated: 2021/06/03 13:13:23 by aglorios         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,21 +35,29 @@ all: 		${NAME}
 
 clean:
 			make -C libft clean
-			make -C checker_bonus clean
 			${RM} ${OBJS}
 
 fclean:		clean
 			make -C libft fclean
-			make -C checker_bonus fclean
 			${RM} ${NAME}
-			rm checker
 
 re:		fclean all
 
-bonus:     	re
+bonus:     	all
 			make -C checker_bonus
-			$(shell) mv checker_bonus/checker .
+			mv ./checker_bonus/checker .
 			
+clean_bonus:
+			make -C libft clean
+			make -C checker_bonus clean
+			${RM} ${OBJS}
+
+fclean_bonus:		clean_bonus
+			make -C libft fclean
+			make -C checker_bonus fclean
+			${RM} ${NAME}
+			rm checker
+		
 c:		all clean
 
 .PHONY:		clean fclean re all
