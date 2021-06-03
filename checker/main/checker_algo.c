@@ -6,7 +6,7 @@
 /*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:31:50 by aglorios          #+#    #+#             */
-/*   Updated: 2021/05/31 17:34:02 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/03 11:59:22 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 int ft_cmd(t_pile *pile, char *cmd)
 {
 	if (!(ft_strncmp(cmd, "sa", 3)))
-		swap(pile->a);
+		swap(pile->a, pile->arg_nb_a);
 	else if (!(ft_strncmp(cmd, "sb", 3)))
-		swap(pile->b);
+		swap(pile->b, pile->arg_nb_b);
 	else if (!(ft_strncmp(cmd, "ss", 3)))
-		swap_ss(pile->a, pile->b);
+		swap_ss(pile->a, pile->b, pile->arg_nb_a, pile->arg_nb_b);
 	else if (!(ft_strncmp(cmd, "pa", 3)))
 		push_a(pile);
 	else if (!(ft_strncmp(cmd, "pb", 3)))
 		push_b(pile);
 	else if (!(ft_strncmp(cmd, "ra", 3)))
-		rotate(pile->a);
+		rotate(pile->a, pile->arg_nb_a);
 	else if (!(ft_strncmp(cmd, "rb", 3)))
-		rotate(pile->b);
+		rotate(pile->b, pile->arg_nb_b);
 	else if (!(ft_strncmp(cmd, "rr", 3)))
 	{
-		rotate(pile->a);
-		rotate(pile->b);
+		rotate(pile->a, pile->arg_nb_a);
+		rotate(pile->b, pile->arg_nb_b);
 	}
 	else if (!(ft_strncmp(cmd, "rra", 4)))
-		rot_rot(pile->a);
+		rot_rot(pile->a, pile->arg_nb_a);
 	else if (!(ft_strncmp(cmd, "rrb", 4)))
-		rot_rot(pile->b);
+		rot_rot(pile->b, pile->arg_nb_b);
 	else if (!(ft_strncmp(cmd, "rrr", 4)))
 	{
-		rot_rot(pile->a);
-		rot_rot(pile->b);
+		rot_rot(pile->a, pile->arg_nb_a);
+		rot_rot(pile->b, pile->arg_nb_b);
 	}
 	else
 		return (0);
@@ -86,7 +86,7 @@ int	checker_algo(t_pile *pile)
 		}
 	}
 //	test(pile);
-	if (is_sort(pile->a) == -1 || pile->arg_nb_b)
+	if (is_sort(pile->a, pile->arg_nb_a) == -1 || pile->arg_nb_b)
 	{
 		ft_putstr_fd("KO\n", 1);
 		return (0);
