@@ -6,7 +6,7 @@
 #    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/06/02 13:10:27 by thgillai         ###   ########.fr        #
+#    Updated: 2021/06/03 12:22:29 by aglorios         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ clean:
 fclean:		clean
 			make -C libft fclean
 			${RM} ${NAME}
+			rm .values
 
 re:		fclean all
 
