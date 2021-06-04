@@ -20,9 +20,8 @@ do
 done
 echo /////////VALUES////////
 echo ${TAB[*]}
-echo ${TAB[*]} > .values
 echo ////////////////////////
-ARG=$(cat .values);
+ARG=${TAB[*]};
 echo "moves et checker mac :"
 ./push_swap $ARG | wc -l
 ./push_swap $ARG | ./checker_Mac $ARG
