@@ -10,9 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCNAME =	main/main.c main/main2.c src/operations/swap.c src/utils.c \
-			src/operations/rotate.c src/operations/push.c src/utils2.c \
-			src/algo.c src/algo_3nb.c src/algo_5nb.c \
+SRCNAME =	main/main.c \
+			main/utils.c \
+			main/arg_check.c \
+			src/operations/swap.c \
+			src/utils.c \
+			src/operations/rotate.c \
+			src/operations/push.c \
+			src/utils2.c \
+			src/algo.c \
+			src/algo_3nb.c \
+			src/algo_5nb.c
 
 SRCS	= ${SRCNAME}
 
@@ -35,28 +43,20 @@ all: 		${NAME}
 
 clean:
 			make -C libft clean
+			make -C checker_bonus clean
 			${RM} ${OBJS}
 
 fclean:		clean
-			make -C libft fclean
 			${RM} ${NAME}
+			make -C libft fclean
+			make -C checker_bonus fclean
+			rm ./checker
 
 re:		fclean all
 
 bonus:     	all
 			make -C checker_bonus
 			mv ./checker_bonus/checker .
-			
-clean_bonus:
-			make -C libft clean
-			make -C checker_bonus clean
-			${RM} ${OBJS}
-
-fclean_bonus:		clean_bonus
-			make -C libft fclean
-			make -C checker_bonus fclean
-			${RM} ${NAME}
-			rm checker
 		
 c:		all clean
 

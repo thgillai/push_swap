@@ -66,16 +66,3 @@ void	pile_arg(char *arg, t_pile *pile)
 		exit_error("Error5\n");
 	pile->arg_nb_a++;
 }
-
-int	algo_main(t_pile *pile)
-{
-	if (!is_sort(pile->a, pile->arg_nb_a))
-		return (0);
-	if (pile->arg_nb_a <= 3)
-		algo_3nba(pile->a, pile->arg_nb_a);
-	else if (pile->arg_nb_a <= 5 && pile->arg_nb_a >= 4)
-		algo_5nb(pile);
-	else
-		algo(pile);
-	return (0);
-}

@@ -42,6 +42,9 @@ typedef struct s_data
 void	pile_doublons(int arg, t_pile *pile);
 void	pile_arg(char *arg, t_pile *pile);
 int		algo_main(t_pile *pile);
+void	arg_is_str(char *av, t_pile *pile);
+void	arg_is_str2(t_pile *pile, int b, char **str);
+
 
 /* Operations */
 int		swap(int *tab, int len);
