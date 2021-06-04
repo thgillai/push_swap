@@ -15,9 +15,7 @@
 void	test3(t_pile *pile)
 {
 	int	loop;
-	int	i;
 
-	i = 0;
 	printf("\npile a : ");
 	if (pile->a)
 	{
@@ -172,7 +170,7 @@ int	algo(t_pile *pile)
 	data->ref = ft_tabcpy(data->ref, pile->a, pile->arg_nb_a);
 	bubble_sort(data->ref, pile->arg_nb_a);
 	data->refchunk = 0;
-	data->chunk_nb = 5;
+	data->chunk_nb = 6;
 	data->chunk_size = pile->arg_nb_a / data->chunk_nb;
 //	if (pile->arg_nb_a % data->chunk_size == 0)
 //		data->chunk_nb++;
