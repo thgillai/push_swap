@@ -134,7 +134,7 @@ int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
 
 	pos = 0;
 	push_to_b(pile, data, i, j);
-	push_to_a(pile, data, i);
+	push_to_a(pile, data, i); // au lieu de repush direct sur A, d'abord mettre tout les nb sur B puis remettre sur A en fonction
 	i = ft_max(data->refchunk);
 	while (pile->a[pile->arg_nb_a - 1] != i)
 	{
