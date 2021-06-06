@@ -35,6 +35,7 @@ typedef struct s_data
 	int	chunk_size;
 	int *ref;
 	int *refchunk;
+	int	refsize;
 }			t_data;
 
 /* Main */

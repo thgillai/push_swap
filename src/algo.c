@@ -50,14 +50,16 @@ int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 	int start;
 	int end;
 
-	i = pile->arg_nb_a + 1;
-	start = ((pile->arg_nb_a / data->chunk_nb) * (j));
-	end = ((pile->arg_nb_a / data->chunk_nb) * (j + 1));
+	i = pile->arg_nb_a;
+	start = ((data->refsize/ data->chunk_nb) * (j));
+	(void)j;
+	end = ((data->refsize / data->chunk_nb) * (j + 1));
 	data->chunk_size = end - start;
-	data->refchunk = tabncpy(data->ref, start, end, pile->arg_nb_a);
+//	data->refchunk = tabncpy(data->ref, start, end, pile->arg_nb_a);
+	data->refchunk = tabncpy(data->ref, start, end, data->refsize);
 	while (i--) ////////////////////// trouver la position de l occurence la plus proche et agir en fonction au lieu de tourner en rond ??
 	{
-		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1 )
+		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
 		{
 			push_b(pile);
 			ft_putstr_fd("pb\n", 1);
@@ -134,14 +136,14 @@ int	fill_chunk(t_pile *pile, t_data *data, int i, int j)
 
 	pos = 0;
 	push_to_b(pile, data, i, j);
-	push_to_a(pile, data, i); // au lieu de repush direct sur A, d'abord mettre tout les nb sur B puis remettre sur A en fonction
-	i = ft_max(data->refchunk);
+//	push_to_a(pile, data, i);
+/*	i = ft_max(data->refchunk);
 	while (pile->a[pile->arg_nb_a - 1] != i)
 	{
 		rotate(pile->a, pile->arg_nb_a);
 		ft_putstr_fd("ra\n", 1);
 	}
-	free(data->refchunk);
+*/	free(data->refchunk);
 
 	return (0);
 }
@@ -154,8 +156,8 @@ int	last_chunk(t_pile *pile, t_data *data, int i)
 		ft_putstr_fd("pb\n", 1);
 	}
 	push_to_a_last_chunk(pile, data, i);
-//	data->min = ft_min(pile->a);
-//	i = ft_pos(pile->a, data->min, pile->arg_nb_a);
+	data->min = ft_min(pile->a);
+	i = ft_pos(pile->a, data->min, pile->arg_nb_a);
 	while (pile->a[0] != ft_min(pile->a))
 	{
 /*		if (i > pile->arg_nb_a / 2) // trop lent avec 500 mais pas mal avec 100 (opti le 500 avec 5x100 ?)
@@ -185,20 +187,32 @@ int	algo(t_pile *pile)
 	data = ft_calloc(1, sizeof(t_data));
 	data->ref = 0;
 	data->ref = ft_tabcpy(data->ref, pile->a, pile->arg_nb_a);
+	data->refsize = pile->arg_nb_a;
 	bubble_sort(data->ref, pile->arg_nb_a);
 	data->refchunk = 0;
-	data->chunk_nb = 6;
+	if (pile->arg_nb_a < 499)
+		data->chunk_nb = 6;
+	else
+		data->chunk_nb = 12;
 	data->chunk_size = pile->arg_nb_a / data->chunk_nb;
 //	if (pile->arg_nb_a % data->chunk_size == 0)
 //		data->chunk_nb++;
 //	printf("\n%i", data->chunk_nb);
-	while (j < 5)
+	while (j < data->chunk_nb)
 	{
 		fill_chunk(pile, data, i, j);
 		j++;
+//		test3(pile);
 	}
-	if (pile->a[0] != ft_min(pile->a))
-		last_chunk(pile, data, i);
+//	test3(pile);
+//	if (pile->a[0] != ft_min(pile->b))
+//	last_chunk(pile, data, i);
+	while (pile->arg_nb_a)
+	{
+		push_b(pile);
+		ft_putstr_fd("pb\n", 1);
+	}
+	push_to_a(pile, data, i);
 //	test3(pile);
 	return (0);
 }
