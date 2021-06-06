@@ -45,22 +45,80 @@ int ft_pos(int *pile, int pos, int len)
 	return (0);
 }
 
+int	pos_occurence(t_pile *pile, t_data *data)
+{
+	int pos;
+	int pos_to_back;
+	int i;
+
+	pos = 0;
+	pos_to_back = 0;
+	i = 0;
+	while (i <= pile->arg_nb_a / 2)
+	{
+		if (occurence(data->refchunk, pile->a[i++], data->chunk_size) == 1)
+		{
+			pos = i;
+			break;
+		}
+		else
+			pos = -1;
+	}	
+	return (pos);
+}
+
 int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 {
 	int start;
 	int end;
+	int pos;
+	int nb;
 
 	start = ((data->refsize/ data->chunk_nb) * (j));
-	(void)j;
+	pos = 0;
+	nb = 0;
 	end = ((data->refsize / data->chunk_nb) * (j + 1));
 	data->chunk_size = end - start;
 //	i = pile->arg_nb_a;
-	i = data->chunk_size;
+	i = 0;
 //	data->refchunk = tabncpy(data->ref, start, end, pile->arg_nb_a);
 	data->refchunk = tabncpy(data->ref, start, end, data->refsize);
-	while (i) ////////////////////// trouver la position de l occurence la plus proche et agir en fonction au lieu de tourner en rond ??
+	while (i < data->chunk_size && pile->arg_nb_a) ////////////////////// trouver la position de l occurence la plus proche et agir en fonction au lieu de tourner en rond ??
 	{
-		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
+//		test3(pile);	
+		pos = pos_occurence(pile, data);
+		if (pos)
+		{
+//		printf("\npos : %i\n", pos);
+			nb = pile->a[pos];
+//		printf("\nnb : %i\n", nb);
+			while (pile->a[0] != nb)
+			{
+				rotate(pile->a, pile->arg_nb_a);
+				ft_putstr_fd("ra\n", 1);
+			}
+			push_b(pile);
+			ft_putstr_fd("pb\n", 1);
+			i++;
+		}
+		else
+		{
+			while (pile->arg_nb_a)
+			{
+				if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
+				{
+					push_b(pile);
+					ft_putstr_fd("pb\n", 1);
+					i++;
+				}
+				else
+				{
+					rot_rot(pile->b, pile->arg_nb_b);
+					ft_putstr_fd("rrb\n", 1);
+				}
+			}
+		}
+/*		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
 		{
 			push_b(pile);
 			ft_putstr_fd("pb\n", 1);
@@ -76,7 +134,7 @@ int	push_to_b(t_pile *pile, t_data *data, int i, int j)
 			rotate(pile->a, pile->arg_nb_a);
 			ft_putstr_fd("ra\n", 1);
 		}
-	}
+*/	}
 	return (0);
 }
 

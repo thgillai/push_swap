@@ -28,7 +28,7 @@ OBJS	= ${SRCS:.c=.o}
 
 NAME	= push_swap
 
-CC		= gcc -g -fsanitize=address
+CC		= gcc -g #-fsanitize=address
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -I. -I./libft
 
