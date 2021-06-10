@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/03 12:40:30 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/10 15:44:48 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	test(t_pile *pile)
 	printf("\n");
 }
 
-int	algo_main(t_pile *pile)
+int	algo_parse(t_pile *pile, t_data *data)
 {
 	if (!is_sort(pile->a, pile->arg_nb_a))
 		return (0);
@@ -42,23 +42,28 @@ int	algo_main(t_pile *pile)
 	else if (pile->arg_nb_a <= 5 && pile->arg_nb_a >= 4)
 		algo_5nb(pile);
 	else
-		algo(pile);
+		algo(pile, data);
 	return (0);
 }
 
 int	main(int ac, char **av)
 {
 	t_pile	*pile;
+	t_data	*data;
 	int		i;
 
+	system("leaks push_swap");
 	i = 1;
 	pile = ft_calloc(1, sizeof(t_pile));
+	data = ft_calloc(1, sizeof(t_data));
 	if (ac < 2)
 		exit_error("Error\n");
 	if (ac == 2)
 	{
 		arg_is_str(av[1], pile);
 		i = pile->arg_nb_a - 1;
+		test(pile);
+	//	printf("slt/n");
 	}
 	else
 	{
@@ -72,7 +77,8 @@ int	main(int ac, char **av)
 	}
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
-	algo_main(pile);
-//	test(pile);
+	algo_parse(pile, data);
+	test(pile);
+	free_struct(pile);
 	return (0);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
+#    By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/06/03 13:13:23 by aglorios         ###   ########.fr        #
+#    Updated: 2021/06/10 15:26:56 by thgillai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,11 +50,10 @@ fclean:		clean
 			${RM} ${NAME}
 			make -C libft fclean
 			make -C checker_bonus fclean
-			rm ./checker
 
 re:		fclean all
 
-bonus:     	all
+ bonus:     	all
 			make -C checker_bonus
 			mv ./checker_bonus/checker .
 		

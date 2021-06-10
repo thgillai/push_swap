@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 15:27:24 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/03 12:18:02 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/10 15:44:28 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	max_handlera(int *pile, int len)
 	i = 0;
 	row = 0;
 	max = pile[i];
-	while (pile[i])
+	while (i < len)
 	{
 		if (max < pile[i])
 		{
@@ -52,7 +52,7 @@ int	min_handlera(int *pile, int len)
 	i = 0;
 	row = 0;
 	min = pile[i];
-	while (pile[i])
+	while (i < len)
 	{
 		if (min > pile[i])
 		{
