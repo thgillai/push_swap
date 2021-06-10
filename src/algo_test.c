@@ -1,20 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.c                                             :+:      :+:    :+:   */
+/*   algo_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/10 20:10:44 by thgillai         ###   ########.fr       */
+/*   Created: 2021/06/10 17:59:37 by thgillai          #+#    #+#             */
+/*   Updated: 2021/06/10 19:34:05 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ft_pos(int *pile, int pos, int len)
+int opti_row(t_pile *pile, t_data *data)
 {
-	int	i;
+	int opti;
+	int row_f;
+	int row_b;
+
+	opti = 0;
+	row_f = 0;
+	row_b = 0;
+	while (opti < pile->arg_nb_a)
+	{
+		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
+			row_f = opti;
+		opti++;
+	}
+	opti = pile->arg_nb_a - 1;
+	while (opti)
+	{
+		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
+			row_b = opti;
+		opti--;
+	}
+	if (row_f < row_b)
+		return (1) ;
+	return (0);
+}
+
+int ft_pos(int *pile, int pos, int len)
+{
+	int i;
 
 	i = 0;
 	while (i < len)
@@ -22,33 +49,6 @@ int	ft_pos(int *pile, int pos, int len)
 		if (pile[i] == pos)
 			return (i);
 		i++;
-	}
-	return (0);
-}
-
-int	push_to_b(t_pile *pile, t_data *data, int i, int j)
-{
-	int	start;
-	int	end;
-
-	start = ((data->refsize / data->chunk_nb) * (j));
-	end = ((data->refsize / data->chunk_nb) * (j + 1));
-	data->chunk_size = end - start;
-	i = data->chunk_size;
-	data->refchunk = tabncpy(data->ref, start, end, data->refsize);
-	while (i)
-	{
-		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
-		{
-			push_b(pile);
-			ft_putstr_fd("pb\n", 1);
-			i--;
-		}
-		else if (i)
-		{
-			rotate(pile->a, pile->arg_nb_a);
-			ft_putstr_fd("ra\n", 1);
-		}
 	}
 	return (0);
 }
@@ -78,10 +78,47 @@ int	push_to_a(t_pile *pile, t_data *data, int i)
 	return (0);
 }
 
+int	push_to_b(t_pile *pile, t_data *data, int i, int j)
+{
+	int start;
+	int end;
+
+	start = ((data->refsize/ data->chunk_nb) * (j));
+	end = ((data->refsize / data->chunk_nb) * (j + 1));
+	data->chunk_size = end - start;
+	i = data->chunk_size;
+	data->refchunk = tabncpy(data->ref, start, end, data->refsize);
+
+	while (i)
+	{
+		if (occurence(data->refchunk, pile->a[0], data->chunk_size) == 1)
+		{
+			push_b(pile);
+			ft_putstr_fd("pb\n", 1);
+			i--;
+		}
+		else if (i)
+		{
+			if (opti_row(pile, data))
+			{
+				rotate(pile->a, pile->arg_nb_a);
+				ft_putstr_fd("ra\n", 1);
+			}
+			else
+			{
+				rot_rot(pile->a, pile->arg_nb_a);
+				ft_putstr_fd("rra\n", 1);
+			}
+		}
+	}
+
+	return (0);
+}
+
 int	algo(t_pile *pile, t_data *data)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
 	j = 0;

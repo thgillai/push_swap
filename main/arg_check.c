@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/10 14:23:52 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/06/10 17:50:27 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,20 @@ void	arg_is_str(char *av, t_pile *pile)
 	int		j;
 	int		b;
 	char	**str;
-	int		temp;
 
 	i = 0;
 	j = 0;
 	b = 0;
-	temp = 0;
 	str = ft_split(av, ' ');
 	while (str[b] != NULL && str[b])
-	{
 		b++;
-	}
 	while (i < b)
 	{
 		j = 0;
 		while (str[i][j])
 		{	
-			if (!ft_isdigit(str[i][j]) && (str[i][j] != '-' && str[i][j] != '+'))
+			if (!ft_isdigit(str[i][j]) && (str[i][j] != '-'
+			&& str[i][j] != '+'))
 				exit_error("Error\n");
 			j++;
 		}

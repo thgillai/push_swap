@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:38:58 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/10 15:36:15 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/10 19:50:23 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ void	pile_arg(char *arg, t_pile *pile)
 		j++;
 	}
 	pile->a[pile->arg_nb_a] = ft_atoi(arg);
-	if (pile->a[pile->arg_nb_a] < -2147483648 && pile->a[pile->arg_nb_a] > 2147483647)
+	if (pile->a[pile->arg_nb_a] < -2147483648
+		&& pile->a[pile->arg_nb_a] > 2147483647)
 		exit_error("Error5\n");
 	pile->arg_nb_a++;
 }
@@ -71,6 +72,24 @@ void	free_struct(t_pile *pile)
 {
 	free(pile->a);
 	free(pile->b);
-	//free(data->ref);
-	//free(data->refchunk);
+}
+
+int	arg_to_pile(int ac, char **av, t_pile *pile)
+{
+	if (ac == 2)
+	{
+		arg_is_str(av[1], pile);
+		pile->count_arg = pile->arg_nb_a - 1;
+	}
+	else
+	{
+		pile->a = malloc(sizeof(int *) * ac);
+		if (!pile->a)
+			return (0);
+		while (pile->count_arg < ac)
+			pile_arg(av[pile->count_arg++], pile);
+		pile->count_arg -= 1;
+		pile->a[pile->count_arg] = 0;
+	}
+	return (1);
 }

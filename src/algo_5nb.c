@@ -6,13 +6,13 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:19:44 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/03 12:22:40 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:12:29 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	test2(t_pile *pile)
+/*void	test2(t_pile *pile)
 {
 	int	loop;
 	int	i;
@@ -33,7 +33,7 @@ void	test2(t_pile *pile)
 			printf("%d ", pile->b[loop]);
 	}
 	printf("\n");
-}
+}*/
 
 int	find_min_5nb(t_pile *pile)
 {
@@ -130,7 +130,8 @@ int	algo_5nb(t_pile *pile)
 		}
 		else if (row == 0 && pile->arg_nb_a == 4)
 		{
-			if (pile->a[0] < pile->b[0] || pile->b[0] > ft_max(pile->a)
+			if (pile->a[0] < pile->b[0]
+				|| pile->b[0] > ft_max(pile->a, pile->arg_nb_a)
 				|| pile->b[0] < ft_min(pile->a))
 				ft_resort_tab(pile);
 		}

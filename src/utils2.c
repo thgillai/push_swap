@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:02:36 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 17:00:31 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:13:14 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_row(int *tab, int find)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -28,9 +28,9 @@ int	ft_row(int *tab, int find)
 
 int	*tabncpy(int *src, int start, int end, int len)
 {
-	int		i;
-	int		a;
-	int		*dest;
+	int	i;
+	int	a;
+	int	*dest;
 
 	dest = 0;
 	a = 0;
@@ -54,7 +54,7 @@ int	*tabncpy(int *src, int start, int end, int len)
 
 int	occurence(int *tab, int nb, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)

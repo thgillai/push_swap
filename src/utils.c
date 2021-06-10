@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/09 17:20:52 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:12:53 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ int	ft_min(int *pile)
 	return (min);
 }
 
-int	ft_max(int *pile)
+int	ft_max(int *pile, int arg_nb)
 {
 	int	i;
 	int	max;
 
 	i = 0;
 	max = pile[0];
-	while (pile[i])
+	while (i < arg_nb)
 	{
 		if (max < pile[i])
 			max = pile[i];
@@ -98,5 +98,3 @@ int	ft_max(int *pile)
 	}
 	return (max);
 }
-
-

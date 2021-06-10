@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/10 15:44:32 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:07:47 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_pile
 	int		arg_nb_b;
 	int		first_b_malloc;
 	int		first_a_malloc;
+	int		count_arg;
 }				t_pile;
 
 typedef struct s_data
@@ -33,8 +34,8 @@ typedef struct s_data
 	int	row;
 	int	chunk_nb;
 	int	chunk_size;
-	int *ref;
-	int *refchunk;
+	int	*ref;
+	int	*refchunk;
 	int	refsize;
 }				t_data;
 
@@ -45,7 +46,7 @@ void	pile_arg(char *arg, t_pile *pile);
 int		algo_parse(t_pile *pile, t_data *data);
 void	arg_is_str(char *av, t_pile *pile);
 void	arg_is_str2(t_pile *pile, int b, char **str);
-
+int		arg_to_pile(int ac, char **av, t_pile *pile);
 
 /* Operations */
 int		swap(int *tab, int len);
@@ -68,12 +69,11 @@ int		*ft_tabcpy(int *dest, int *src, int len);
 int		*tabncopy(int *src, int start, int end, int len);
 int		*addfronttab(int *tab, int add, int len);
 int		*ft_addbacktab(int *tab, int add, int len);
-int		ft_max(int *pile);
+int		ft_max(int *pile, int arg_nb);
 int		ft_min(int *pile);
 int		ft_row(int *tab, int find);
 int		*tabncpy(int *src, int start, int end, int len);
 int		occurence(int *tab, int nb, int len);
 void	free_struct(t_pile *pile);
-
 
 #endif
