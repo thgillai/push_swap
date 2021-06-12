@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:24:14 by aglorios          #+#    #+#             */
-/*   Updated: 2021/06/10 20:00:49 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:25:21 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker.h"
-
-/*void	test_pile(t_pile *pile)
-{
-	int	loop;
-	int	i;
-
-	i = 0;
-	printf("\npile a : ");
-	for (loop = 0; loop < pile->arg_nb_a; loop++)
-		printf("%d ", pile->a[loop]);
-	printf("\npile b : ");
-	for (loop = 0; loop < pile->arg_nb_b; loop++)
-		printf("%d ", pile->b[loop]);
-	printf("\n");
-}*/
 
 int	main(int ac, char **av)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:23:09 by aglorios          #+#    #+#             */
-/*   Updated: 2021/06/03 11:55:30 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:13:30 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include "../../libft/inc/libft.h"
 # include "../../inc/push_swap.h"
-# include <stdio.h>
 
 int		checker_algo(t_pile *pile);
 

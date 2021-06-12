@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aglorios <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/31 15:45:31 by aglorios          #+#    #+#              #
-#    Updated: 2021/06/03 13:09:34 by aglorios         ###   ########.fr        #
+#    Updated: 2021/06/12 13:23:27 by thgillai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ OBJS	= ${SRCS:.c=.o}
 
 NAME	= checker
 
-CC		= gcc -g -fsanitize=address
+CC		= gcc -g #-fsanitize=address
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -I. -I../libft
 

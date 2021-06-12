@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/10 20:07:47 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:15:46 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_data
 }				t_data;
 
 /* Main */
-
 void	pile_doublons(int arg, t_pile *pile);
 void	pile_arg(char *arg, t_pile *pile);
 int		algo_parse(t_pile *pile, t_data *data);

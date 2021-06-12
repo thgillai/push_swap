@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_3nb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 15:27:24 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/10 15:44:28 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 12:43:29 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,12 @@ int	max_handlera(int *pile, int len)
 	i = 0;
 	row = 0;
 	max = pile[i];
-	while (i < len)
-	{
+	while (i++ < len)
 		if (max < pile[i])
 		{
 			max = pile[i];
 			row = i;
 		}
-		i++;
-	}
 	if (row == 0)
 	{
 		rotate(pile, len);
