@@ -6,29 +6,14 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 15:27:24 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/12 13:36:44 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:51:08 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	max_handlera(int *pile, int len)
+void	row_handler(int *pile, int row, int len)
 {
-	int	i;
-	int	row;
-	int	max;
-
-	i = 0;
-	row = 0;
-	max = pile[i];
-	while (i++ < len)
-	{
-		if (max < pile[i])
-		{
-			max = pile[i];
-			row = i;
-		}
-	}
 	if (row == 0)
 	{
 		rotate(pile, len);
@@ -39,6 +24,27 @@ int	max_handlera(int *pile, int len)
 		rot_rot(pile, len);
 		ft_putstr_fd("rra\n", 1);
 	}
+}
+
+int	max_handlera(int *pile, int len)
+{
+	int	i;
+	int	row;
+	int	max;
+
+	i = 0;
+	row = 0;
+	max = pile[i];
+	while (i < len)
+	{
+		if (max < pile[i])
+		{
+			max = pile[i];
+			row = i;
+		}
+		i++;
+	}
+	row_handler(pile, row, len);
 	return (0);
 }
 
