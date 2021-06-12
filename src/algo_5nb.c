@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:19:44 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/12 14:00:10 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 14:03:54 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,7 @@ int	ft_resort_tab(t_pile *pile)
 		}
 		i++;
 	}
-	if (row > 0 && row <= 2)
-	{
-		while (row--)
-		{
-			rotate(pile->a, pile->arg_nb_a);
-			ft_putstr_fd("ra\n", 1);
-		}
-	}
-	if (row > 2)
-	{
-		while (!(pile->a[0] == min))
-		{
-			rot_rot(pile->a, pile->arg_nb_a);
-			ft_putstr_fd("rra\n", 1);
-		}
-	}
+	ft_resort_tab2(pile, row, min);
 	return (0);
 }
 

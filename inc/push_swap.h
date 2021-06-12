@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/12 13:57:16 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 14:01:56 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,5 @@ int		*tabncpy(int *src, int start, int end, int len);
 int		occurence(int *tab, int nb, int len);
 void	free_struct(t_pile *pile);
 int		find_min_5nb(t_pile *pile);
-
 
 #endif
