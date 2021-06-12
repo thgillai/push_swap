@@ -6,34 +6,11 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/12 12:49:35 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:34:39 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-/*void	test(t_pile *pile)
-{
-	int	loop;
-	int	i;
-
-	i = 0;
-	printf("pile a : ");
-	if (pile->a)
-	{
-		for (loop = 0; loop < pile->arg_nb_a; loop++)
-			printf("%d ", pile->a[loop]);
-	}
-	printf("\npile b : ");
-	if (pile->b)
-	{
-		while (pile->b[i])
-			i++;
-		for (loop = 0; loop < i; loop++)
-			printf("%d ", pile->b[loop]);
-	}
-	printf("\n");
-}*/
 
 int	algo_parse(t_pile *pile, t_data *data)
 {
@@ -63,7 +40,6 @@ int	main(int ac, char **av)
 	while (pile->count_arg != 0)
 		pile_doublons(pile->a[--pile->count_arg], pile);
 	algo_parse(pile, data);
-	//test(pile);
 	free_struct(pile);
 	return (0);
 }

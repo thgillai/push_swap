@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 10:12:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/12 12:56:32 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:37:02 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	push_to_a(t_pile *pile, t_data *data, int i)
 
 void	fill_b(t_pile *pile, t_data *data, int i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (j < data->chunk_nb)
