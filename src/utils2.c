@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:02:36 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/10 20:13:14 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:57:44 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+int	find_min_5nb(t_pile *pile)
+{
+	int	i;
+	int	min;
+
+	min = 0;
+	i = 0;
+	while (i < pile->arg_nb_a)
+	{
+		if (pile->a[i] > pile->b[0])
+		{
+			min = i;
+			break ;
+		}
+		i++;
+	}	
+	return (min);
+}
 
 int	ft_row(int *tab, int find)
 {

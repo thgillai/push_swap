@@ -6,29 +6,30 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:19:44 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/12 13:11:17 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 14:00:10 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	find_min_5nb(t_pile *pile)
+void	ft_resort_tab2(t_pile *pile, int row, int min)
 {
-	int	i;
-	int	min;
-
-	min = 0;
-	i = 0;
-	while (i < pile->arg_nb_a)
+	if (row > 0 && row <= 2)
 	{
-		if (pile->a[i] > pile->b[0])
+		while (row--)
 		{
-			min = i;
-			break ;
+			rotate(pile->a, pile->arg_nb_a);
+			ft_putstr_fd("ra\n", 1);
 		}
-		i++;
-	}	
-	return (min);
+	}
+	if (row > 2)
+	{
+		while (!(pile->a[0] == min))
+		{
+			rot_rot(pile->a, pile->arg_nb_a);
+			ft_putstr_fd("rra\n", 1);
+		}
+	}
 }
 
 int	ft_resort_tab(t_pile *pile)
