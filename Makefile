@@ -6,7 +6,7 @@
 #    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/06/12 13:17:58 by thgillai         ###   ########.fr        #
+#    Updated: 2021/06/14 15:59:16 by aglorios         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ fclean:		clean
 			${RM} ${NAME}
 			make -C libft fclean
 			make -C checker_bonus fclean
-			rm ./checker
+			rm ./checker | true
 
 re:		fclean all
 
