@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 12:33:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/04/20 12:51:54 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/14 14:43:24 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 		res = res * 10 + str[i++] - '0';
-	if (res > 2147483648)
+	if (res >= 2147483648)
 	{
-		if (neg == -1)
-			return (0);
-		return (-1);
+		exit_error("Error\n");
 	}
 	return (res * neg);
 }
