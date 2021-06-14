@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:33:56 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/10 17:20:54 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:21:14 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-/*void	test5(t_pile *pile)
-{
-	int	loop;
-
-	printf("\n-------------pile a : ");
-	if (pile->a)
-	{
-		for (loop = 0; loop < pile->arg_nb_a; loop++)
-			printf("%d ", pile->a[loop]);
-	}
-	printf("\n-------------pile b : ");
-	if (pile->b)
-	{
-		for (loop = 0; loop < pile->arg_nb_b; loop++)
-			printf("%d ", pile->b[loop]);
-	}
-	printf("\n");
-}*/
 
 int	push_a(t_pile *pile)
 {
