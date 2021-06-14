@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/12 13:34:39 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/14 18:29:17 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ int	main(int ac, char **av)
 	data = ft_calloc(1, sizeof(t_data));
 	pile->count_arg = 1;
 	if (ac < 2)
-		exit_error("Error\n");
+	{
+		free_struct(pile);
+		return (0);
+	}
 	if (!arg_to_pile(ac, av, pile))
 		return (0);
 	while (pile->count_arg != 0)
