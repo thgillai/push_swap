@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:31:50 by aglorios          #+#    #+#             */
-/*   Updated: 2021/06/10 20:05:55 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/14 16:12:06 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,27 @@ int	ft_cmd(t_pile *pile, char *cmd)
 int	checker_algo(t_pile *pile)
 {
 	char	*cmd;
+	int		i;
 
 	cmd = NULL;
+	i = 1;
 	while (1)
 	{
-		if (get_next_linec(0, &cmd) != 0)
+		if (get_next_linec(0, &cmd) == -1)
+			break ;
+		if (!ft_cmd(pile, cmd))
 		{
-			if (!ft_cmd(pile, cmd))
-				break ;
-			free(cmd);
+			i = 0;
+			break ;
 		}
+		free(cmd);
 	}
 	free(cmd);
-	if (is_sort(pile->a, pile->arg_nb_a) == -1 || pile->arg_nb_b)
-	{
+	if (!i)
+		ft_putstr_fd("Error\n", 1);
+	else if (is_sort(pile->a, pile->arg_nb_a) == -1 || pile->arg_nb_b)
 		ft_putstr_fd("KO\n", 1);
-		return (0);
-	}
-	ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("OK\n", 1);
 	return (1);
 }
