@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/10 17:50:27 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/18 12:04:12 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	arg_is_str(char *av, t_pile *pile)
 		{	
 			if (!ft_isdigit(str[i][j]) && (str[i][j] != '-'
 			&& str[i][j] != '+'))
+				exit_error("Error\n");
+			if (str[i][j] == '-' && !str[i][j + 1])
 				exit_error("Error\n");
 			j++;
 		}
