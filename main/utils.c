@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:38:58 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/15 13:57:59 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/06/21 12:41:57 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	free_struct(t_pile *pile)
 {
 	free(pile->a);
 	free(pile->b);
+	free(pile);
 }
 
 int	arg_to_pile(int ac, char **av, t_pile *pile)
