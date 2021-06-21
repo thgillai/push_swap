@@ -6,7 +6,7 @@
 #    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/06/21 13:49:49 by thgillai         ###   ########.fr        #
+#    Updated: 2021/06/21 14:45:00 by thgillai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCNAME =	main/main.c \
 			src/utils2.c \
 			src/algo.c \
 			src/algo_3nb.c \
-			src/algo_5nb.c
+			src/algo_5nb.c \
+			main/utils2.c
 
 SRCS	= ${SRCNAME}
 

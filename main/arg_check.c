@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/21 13:49:15 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:59:04 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	arg_is_str(char *av, t_pile *pile)
 			if (!ft_isdigit(str[i][j]) && (str[i][j] != '-'
 			&& str[i][j] != '+'))
 				exit_error("Error\n");
-			if (str[i][j] == '-' && !str[i][j + 1])
+			if (str[i][j] == '-' && !ft_isdigit(str[i][j + 1]))
 				exit_error("Error\n");
 			j++;
 		}

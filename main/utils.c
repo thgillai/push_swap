@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:38:58 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/21 13:33:55 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/21 14:43:29 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	pile_arg(char *arg, t_pile *pile)
 	pile->a[pile->arg_nb_a] = ft_atoi(arg);
 	if (pile->a[pile->arg_nb_a] < -2147483648
 		&& pile->a[pile->arg_nb_a] > 2147483647)
-		exit_error("Error5\n");
+		exit_error("Error\n");
 	pile->arg_nb_a++;
 }
 
@@ -78,8 +78,12 @@ void	free_struct(t_pile *pile, t_data *data)
 
 int	arg_to_pile(int ac, char **av, t_pile *pile)
 {
+	int i;
+
+	i = 0;
 	if (ac == 2)
 	{
+		check_if_rien(av);
 		arg_is_str(av[1], pile);
 		pile->count_arg = pile->arg_nb_a - 1;
 	}

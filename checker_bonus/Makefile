@@ -6,7 +6,7 @@
 #    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/31 15:45:31 by aglorios          #+#    #+#              #
-#    Updated: 2021/06/12 13:23:27 by thgillai         ###   ########.fr        #
+#    Updated: 2021/06/21 14:46:57 by thgillai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCNAME =	srcs/checker.c \
 			get_next_line/get_next_line_utils.c \
 			get_next_line/norme_file.c \
 			../main/utils.c \
+			../main/utils2.c \
 			../main/arg_check.c \
 			../src/operations/swap.c \
 			../src/utils.c \
