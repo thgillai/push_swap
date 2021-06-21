@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:09:11 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/15 13:58:46 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:33:34 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		ft_min(int *pile);
 int		ft_row(int *tab, int find);
 int		*tabncpy(int *src, int start, int end, int len);
 int		occurence(int *tab, int nb, int len);
-void	free_struct(t_pile *pile);
+void	free_struct(t_pile *pile, t_data *data);
 int		find_min_5nb(t_pile *pile);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:38:58 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/21 13:19:53 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:33:55 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,12 @@ void	pile_arg(char *arg, t_pile *pile)
 	pile->arg_nb_a++;
 }
 
-void	free_struct(t_pile *pile)
+void	free_struct(t_pile *pile, t_data *data)
 {
 	free(pile->a);
 	free(pile->b);
 	free(pile);
+	free(data);
 }
 
 int	arg_to_pile(int ac, char **av, t_pile *pile)

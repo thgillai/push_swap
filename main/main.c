@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/21 13:20:42 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/21 13:33:27 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	pile->count_arg = 1;
 	if (ac < 2)
 	{
-		free_struct(pile);
+		free_struct(pile, data);
 		return (0);
 	}
 	if (!arg_to_pile(ac, av, pile))
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 	while (pile->count_arg != 0)
 		pile_doublons(pile->a[--pile->count_arg], pile);
 	algo_parse(pile, data);
-	free_struct(pile);
+	free_struct(pile, data);
 	exit(0);
 	return (0);
 }
