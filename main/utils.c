@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 16:38:58 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/21 14:43:29 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/21 14:51:51 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,6 @@ void	free_struct(t_pile *pile, t_data *data)
 
 int	arg_to_pile(int ac, char **av, t_pile *pile)
 {
-	int i;
-
-	i = 0;
 	if (ac == 2)
 	{
 		check_if_rien(av);
