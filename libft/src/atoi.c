@@ -6,11 +6,12 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 12:33:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/21 14:29:05 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/22 14:27:34 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
+#include <stdio.h>
 
 void	check_arg_atoi(const char *str, int i)
 {
@@ -20,9 +21,9 @@ void	check_arg_atoi(const char *str, int i)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	neg;
-	int	res;
+	int					i;
+	int					neg;
+	unsigned long int	res;
 
 	i = 0;
 	neg = 1;
@@ -39,8 +40,10 @@ int	ft_atoi(const char *str)
 	check_arg_atoi(str, i);
 	while (str[i] >= '0' && str[i] <= '9')
 		res = res * 10 + str[i++] - '0';
-	if ((res * neg) > 2147483647 || (res * neg) < -2147483648)
+	if (res >= 2147483648)
 	{
+		if (neg == -1 && res == 2147483648)
+			return (0);
 		exit_error("Error\n");
 	}
 	return (res * neg);
