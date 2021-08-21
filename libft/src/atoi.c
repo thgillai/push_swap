@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 12:33:00 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/22 14:27:34 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/08/21 17:15:30 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@ void	check_arg_atoi(const char *str, int i)
 {
 	if (!ft_isdigit(str[i]))
 		exit_error("Error\n");
+}
+
+int	ft_check(int neg, unsigned long int res)
+{
+	if (neg == -1 && res == 2147483648)
+		return (0);
+	exit_error("Error\n");
+	return (0);
 }
 
 int	ft_atoi(const char *str)
@@ -42,9 +50,7 @@ int	ft_atoi(const char *str)
 		res = res * 10 + str[i++] - '0';
 	if (res >= 2147483648)
 	{
-		if (neg == -1 && res == 2147483648)
-			return (0);
-		exit_error("Error\n");
+		ft_check(neg, res);
 	}
 	return (res * neg);
 }
