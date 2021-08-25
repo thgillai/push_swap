@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/08/25 16:20:49 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/08/25 16:29:14 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	*ft_addbacktab(int *tab, int add, int len)
 
 	new_tab = malloc(sizeof(int *) * (len + 1));
 	if (!new_tab)
-		return(0);
+		return (0);
 	i = 0;
 	while (i < len)
 	{
@@ -39,7 +39,7 @@ int	*addfronttab(int *tab, int add, int len)
 
 	new_tab = malloc(sizeof(int *) * (len + 1));
 	if (!new_tab)
-		return(0);
+		return (0);
 	i = 0;
 	new_tab[0] = add;
 	while (i < len)
